@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_syllabus"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
+
+    tools:context="devesh.ephrine.gpat.SyllabusActivity">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:orientation="vertical"
+        android:layout_above="@+id/adView">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:paddingTop="10dp">
+
+            <TextView
+                android:text="Select Subject"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView4"
+                android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+                android:textAlignment="center"
+                android:layout_gravity="center_vertical"/>
+
+
+
+
+        </LinearLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <Button
+                    android:text="Physical Chemistry"
+                    android:onClick="phychem"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/button7"
+                    style="@style/Widget.AppCompat.Button.Colored" />
+
+                <Button
+                    android:text="Physical Pharmacy"
+                    android:onClick="pp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/button8"
+                    style="@style/Widget.AppCompat.Button.Colored" />
+
+                <Button
+                    android:text="Organic Chemistry"
+                    android:onClick="oc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/button9"
+                    style="@style/Widget.AppCompat.Button.Colored"/>
+
+                <Button
+                    android:text="Pharmaceutical Chemistry"
+                    android:onClick="pchem"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/button10"
+                    style="@style/Widget.AppCompat.Button.Colored"/>
+
+                <Button
+                    android:text="Pharmaceutics"
+                    android:onClick="pceutics"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/button11"
+                    style="@style/Widget.AppCompat.Button.Colored"/>
+
+                <Button
+                    android:text="Pharmacology"
+                    android:onClick="pcology"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/button12"
+                    style="@style/Widget.AppCompat.Button.Colored"/>
+
+                <Button
+                    android:text="Pharmacognosy"
+                    android:onClick="pcogno"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/button13"
+                    style="@style/Widget.AppCompat.Button.Colored"/>
+
+                <Button
+                    android:text="Pharmaceutical Analysis"
+                    android:onClick="pa"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/button14"
+                    style="@style/Widget.AppCompat.Button.Colored" />
+
+                <Button
+                    android:text="Pathophysiology"
+                    android:onClick="pathophy"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/button18"
+                    style="@style/Widget.AppCompat.Button.Colored"
+                    />
+
+                <Button
+                    android:text="Biochemistry"
+                    android:onClick="biochem"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/button15"
+                    style="@style/Widget.AppCompat.Button.Colored"/>
+
+
+                <Button
+                    android:text="Biotechnology"
+                    android:onClick="biotech"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/button16"
+                    style="@style/Widget.AppCompat.Button.Colored" />
+
+                <Button
+                    android:text="Microbiology"
+                    android:onClick="microbio"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/button17"
+                    style="@style/Widget.AppCompat.Button.Colored"/>
+
+                <Button
+                    android:text="Biopharmaceutics and Pharmacokinetics"
+                    android:onClick="bnp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/button19"
+                    style="@style/Widget.AppCompat.Button.Colored" />
+
+                <Button
+                    android:text="Cliical Pharmacy and Therapeutics"
+                    android:onClick="cpt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/button20"
+                    style="@style/Widget.AppCompat.Button.Colored" />
+
+                <Button
+                    android:text="Anatomy, Physiology and Health Education"
+                    android:layout_width="match_parent"
+                    android:onClick="aph"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/button25"
+                    style="@style/Widget.AppCompat.Button.Colored" />
+
+                <Button
+                    android:text="Pharmaceutical Engineering"
+                    android:onClick="pe"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/button21"
+                    style="@style/Widget.AppCompat.Button.Colored" />
+
+                <Button
+                    android:text="Pharmaceutical Management"
+                    android:onClick="pm"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/button22"
+                    style="@style/Widget.AppCompat.Button.Colored"
+                    />
+
+                <Button
+                    android:text="Pharmaceutical Jurisprudence"
+                    android:onClick="pj"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/button23"
+                    style="@style/Widget.AppCompat.Button.Colored"/>
+
+                <Button
+                    android:text="Dispencing and Hospital Pharmacy"
+                    android:onClick="dhp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/button24"
+                    style="@style/Widget.AppCompat.Button.Colored"/>
+
+            </LinearLayout>
+        </ScrollView>
+
+    </LinearLayout>
+    <android.support.design.widget.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        ads:fabSize="normal"
+        android:layout_alignParentBottom="true"
+android:visibility="gone"
+        ads:srcCompat="@android:drawable/stat_sys_download_done"
+        android:id="@+id/floatingActionButton"
+        android:onClick="pro"
+        ads:backgroundTint="@color/colorFFab"
+        android:scaleType="fitCenter"
+
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        ads:adSize="SMART_BANNER"
+        ads:adUnitId="@string/my_banner_ad_unit_id2_Syllabus">
+    </com.google.android.gms.ads.AdView>
+</RelativeLayout>

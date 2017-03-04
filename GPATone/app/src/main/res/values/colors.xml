@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#0147df</color>
+    <color name="colorPrimaryDark">#3067dd</color>
+    <color name="colorAccent">#09d509</color>
+    <color name="startgreen">#80dde7</color>
+    <color name="startup">#80dde7</color>
+    <color name="statusbar">#019f01</color>
+    <color name="actionbar">#008d00</color>
+    <color name="actionbarsy">#00729c</color>
+    <color name="primarSyll">#03a9f4</color>
+    <color name="colorAc">#16e558</color>
+    <color name="colorFFab">#005e80</color>
+    <color name="EPvoilet">#abd10af4</color>
+    <color name="startColor">#dcd8da</color>
+
+    <color name="bookPrim">#009688</color>
+    <color name="bookDark">#00796b</color>
+    <color name="bgtint">#62000000</color>
+    <color name="loadingBG">#90000000</color>
+</resources>

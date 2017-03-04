@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_qp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
+
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="devesh.ephrine.gpat.QPActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+
+        android:layout_alignParentStart="true"
+        android:layout_above="@+id/adView">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <Button
+                android:text="Question Paper 2015"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/button"
+                android:layout_gravity="center"
+                android:onClick="qp15"
+                style="@style/Widget.AppCompat.Button.Colored" />
+
+            <Button
+                android:text="Question Paper 2012"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/button2"
+                android:onClick="qp12"
+                android:layout_gravity="center"
+
+                style="@style/Widget.AppCompat.Button.Colored" />
+
+            <Button
+                android:text="Question Paper 2011"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/button3"
+                android:layout_gravity="center"
+
+                android:onClick="qp11"
+                style="@style/Widget.AppCompat.Button.Colored" />
+
+            <Button
+                android:text="Question Paper 2010"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/button4"
+                android:layout_gravity="center"
+
+                android:onClick="qp10"
+                style="@style/Widget.AppCompat.Button.Colored" />
+
+            <Button
+                android:text="Question Paper 2009"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/button5"
+                android:onClick="qp09"
+                android:layout_gravity="center"
+
+                style="@style/Widget.AppCompat.Button.Colored" />
+
+            <Button
+                android:text="Question Paper 2008"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/button6"
+                android:layout_gravity="center"
+
+                android:onClick="qp08"
+                style="@style/Widget.AppCompat.Button.Colored"
+                android:elevation="12dp" />
+        </LinearLayout>
+    </ScrollView>
+
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        ads:adSize="BANNER"
+        ads:adUnitId="@string/my_banner_ad_unit_id1_QP">
+    </com.google.android.gms.ads.AdView>
+</RelativeLayout>
