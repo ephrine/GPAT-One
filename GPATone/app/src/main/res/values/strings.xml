@@ -26,24 +26,5 @@
     <!-- ____________________________________________________________ -->
 
 
-    <!-- My Own F**king Ad IDs-->
-<!--    <string name="MY_APP_ID">ca-app-pub-6702661245453687~3475735856</string>
-<!--    <string name="my_banner_ad_unit_id_Home">ca-app-pub-6702661245453687/4952469059</string>   <!-- HomePage Banner -->
-  <!--  <string name="my_banner_ad_unit_id1_QP">ca-app-pub-6702661245453687/4531395058</string>  <!-- Question Papers Banner -->
- <!--   <string name="my_banner_ad_unit_id2_Syllabus">ca-app-pub-6702661245453687/6507655854</string>   <!-- Syllabus Banner -->
-<!--    <string name="my_banner_ad_unit_id3_StudyBooks">ca-app-pub-6702661245453687/3414588654</string>   <!-- Study Books Banner -->
- <!--   <string name="my_banner_ad_unit_id4_Notes">ca-app-pub-6702661245453687/7844788256</string>   <!-- Notes Banner -->
-
-    <string name="my_int_ad_id">ca-app-pub-6702661245453687/7905935451</string>
-
-
-
-    <!-- FB Login-->
-    <string name="facebook_app_id">379290122445143</string>
-
-    <string name="fb_login_protocol_scheme">fb1183918291729666</string>
-
-
-    <string name="ACCOUNT_KIT_CLIENT_TOKEN">bec5396632d2dd865627fe55a5e84302</string>
-
+    
 </resources>
