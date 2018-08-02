@@ -3,7 +3,6 @@
     <string name="app_version">Vesrion 2.0.1</string>
     <string name="title_activity_login">Sign in</string>
 
-    <!-- Strings related to login -->
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password (optional)</string>
     <string name="action_sign_in">Sign in or register</string>
@@ -16,12 +15,5 @@
         completions."
     </string>
 
-    <!-- FB Login-->
-    <string name="facebook_app_id">379290122445143</string>
-
-    <string name="fb_login_protocol_scheme">fb1183918291729666</string>
-
-
-    <string name="ACCOUNT_KIT_CLIENT_TOKEN">bec5396632d2dd865627fe55a5e84302</string>
-
+   
 </resources>
