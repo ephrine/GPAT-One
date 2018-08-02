@@ -17,6 +17,7 @@ import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
 
 public class BookActivity extends AppCompatActivity {
+    public boolean installed = false;
     ListView listView;
     ListView listView1;
     ListView listView2;
@@ -31,12 +32,11 @@ public class BookActivity extends AppCompatActivity {
     ListView listView11;
     ListView listView12;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_book);
-AdLoad();
+        AdLoad();
         // Pharmacology List view
 
         listView = (ListView) findViewById(R.id.listview1);
@@ -46,7 +46,7 @@ AdLoad();
         // Second parameter - Layout for the row
         // Third parameter - ID of the TextView to which the data is written
         // Forth - the Array of data
-        String[] pharmacologylist = new String[] {
+        String[] pharmacologylist = new String[]{
                 "1. Goodman & Gilman’s The Pharmacological Basis of Therapeutics",
                 "2. Color Atlas of Pharmacology, 3rd Edition",
                 "3. Pharmacology by rang and dale (6th edition)",
@@ -63,9 +63,8 @@ AdLoad();
         };
 
 
-
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
-                R.layout.country_list, R.id.textView,pharmacologylist);
+                R.layout.country_list, R.id.textView, pharmacologylist);
 
 
         // Assign adapter to ListView
@@ -79,10 +78,10 @@ AdLoad();
                                     int position, long id) {
 
                 // ListView Clicked item index
-                int itemPosition     = position;
+                int itemPosition = position;
 
                 // ListView Clicked item value
-                String  itemValue    = (String) listView.getItemAtPosition(position);
+                String itemValue = (String) listView.getItemAtPosition(position);
 
                 /*/ Show Alert
                 Toast.makeText(getApplicationContext(),
@@ -90,48 +89,48 @@ AdLoad();
                         .show();*/
 
 
-                String val=String.valueOf(itemPosition);
-                if(val.equals("0")){
+                String val = String.valueOf(itemPosition);
+                if (val.equals("0")) {
                     Intent intent = new Intent(Intent.ACTION_VIEW);
                     intent.setData(Uri.parse("http://amzn.to/2ipjNde"));
                     startActivity(intent);
-                }else if(val.equals("1")){
+                } else if (val.equals("1")) {
                     Intent intent = new Intent(Intent.ACTION_VIEW);
                     intent.setData(Uri.parse("http://amzn.to/2ipoxzz"));
                     startActivity(intent);
-                }else if(val.equals("2")){
+                } else if (val.equals("2")) {
                     Intent intent = new Intent(Intent.ACTION_VIEW);
                     intent.setData(Uri.parse("http://amzn.to/2ipjZsR"));
                     startActivity(intent);
-                }else if(val.equals("3")){
+                } else if (val.equals("3")) {
                     Intent intent = new Intent(Intent.ACTION_VIEW);
                     intent.setData(Uri.parse("http://amzn.to/2ipnD68"));
                     startActivity(intent);
-                }else if(val.equals("4")){
+                } else if (val.equals("4")) {
                     Intent intent = new Intent(Intent.ACTION_VIEW);
                     intent.setData(Uri.parse("http://amzn.to/2ipsXGB"));
                     startActivity(intent);
-                }else if(val.equals("5")){
+                } else if (val.equals("5")) {
                     Intent intent = new Intent(Intent.ACTION_VIEW);
                     intent.setData(Uri.parse("https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3066588/"));
                     startActivity(intent);
-                }else if(val.equals("6")){
+                } else if (val.equals("6")) {
                     Intent intent = new Intent(Intent.ACTION_VIEW);
                     intent.setData(Uri.parse("http://amzn.to/2iprArk"));
                     startActivity(intent);
-                }else if(val.equals("7")){
+                } else if (val.equals("7")) {
                     Intent intent = new Intent(Intent.ACTION_VIEW);
                     intent.setData(Uri.parse("http://amzn.to/2iGVwNe"));
                     startActivity(intent);
-                }else if(val.equals("8")){
+                } else if (val.equals("8")) {
                     Intent intent = new Intent(Intent.ACTION_VIEW);
                     intent.setData(Uri.parse("http://amzn.to/2i1H5CV"));
                     startActivity(intent);
-                }else if(val.equals("9")){
+                } else if (val.equals("9")) {
                     Intent intent = new Intent(Intent.ACTION_VIEW);
                     intent.setData(Uri.parse("https://www.ncbi.nlm.nih.gov/books/NBK10527/"));
                     startActivity(intent);
-                }else if(val.equals("10")){
+                } else if (val.equals("10")) {
                     Intent intent = new Intent(Intent.ACTION_VIEW);
                     intent.setData(Uri.parse("http://amzn.to/2iGTFbt"));
                     startActivity(intent);
@@ -139,8 +138,6 @@ AdLoad();
             }
 
         });
-
-
 
 
         // Clinical Pharmacology List view
@@ -151,7 +148,7 @@ AdLoad();
         // Second parameter - Layout for the row
         // Third parameter - ID of the TextView to which the data is written
         // Forth - the Array of data
-        String[] ClinicalPharmacology= new String[] {
+        String[] ClinicalPharmacology = new String[]{
                 "1. Clinical Trials – A Practical Guide to Design, Analysis, and Reporting",
                 "2. Davis’s Pocket Clinical Drug Reference",
                 "3.Handbook for good clinical research practice (gcp)",
@@ -165,9 +162,8 @@ AdLoad();
         };
 
 
-
         ArrayAdapter<String> adapter1 = new ArrayAdapter<String>(this,
-                R.layout.country_list, R.id.textView,ClinicalPharmacology);
+                R.layout.country_list, R.id.textView, ClinicalPharmacology);
 
 
         // Assign adapter to ListView
@@ -181,54 +177,54 @@ AdLoad();
                                     int position, long id) {
 
                 // ListView Clicked item index
-                int itemPosition     = position;
+                int itemPosition = position;
 
                 // ListView Clicked item value
-                String  itemValue    = (String) listView1.getItemAtPosition(position);
+                String itemValue = (String) listView1.getItemAtPosition(position);
 
                 // Show Alert
                 //     Toast.makeText(getApplicationContext(),
                 //           "Position :"+itemPosition+"  ListItem : " +itemValue , Toast.LENGTH_LONG)
                 //         .show();
 
-                String val=String.valueOf(itemPosition);
-                if(val.equals("0")){
+                String val = String.valueOf(itemPosition);
+                if (val.equals("0")) {
                     Intent intent = new Intent(Intent.ACTION_VIEW);
                     intent.setData(Uri.parse("http://amzn.to/2hJnv27"));
                     startActivity(intent);
-                }else if(val.equals("1")){
+                } else if (val.equals("1")) {
                     Intent intent = new Intent(Intent.ACTION_VIEW);
                     intent.setData(Uri.parse("http://amzn.to/2ipt04X"));
                     startActivity(intent);
-                }else if(val.equals("2")){
+                } else if (val.equals("2")) {
                     Intent intent = new Intent(Intent.ACTION_VIEW);
                     intent.setData(Uri.parse("https://www.google.co.in/search?q=Handbook+for+good+clinical+research+practice+(gcp)"));
                     startActivity(intent);
-                }else if(val.equals("3")){
+                } else if (val.equals("3")) {
                     Intent intent = new Intent(Intent.ACTION_VIEW);
                     intent.setData(Uri.parse("https://www.google.co.in/search?q=New+Drug+Approval+Process"));
                     startActivity(intent);
-                }else if(val.equals("4")){
+                } else if (val.equals("4")) {
                     Intent intent = new Intent(Intent.ACTION_VIEW);
                     intent.setData(Uri.parse("https://www.ncbi.nlm.nih.gov/pubmed/21250045"));
                     startActivity(intent);
-                }else if(val.equals("5")){
+                } else if (val.equals("5")) {
                     Intent intent = new Intent(Intent.ACTION_VIEW);
                     intent.setData(Uri.parse("https://www.ncbi.nlm.nih.gov/books/NBK20499/"));
                     startActivity(intent);
-                }else if(val.equals("6")){
+                } else if (val.equals("6")) {
                     Intent intent = new Intent(Intent.ACTION_VIEW);
                     intent.setData(Uri.parse("https://www.google.co.in/search?q=Clinical+%3A+Question+%26+Answer"));
                     startActivity(intent);
-                }else if(val.equals("7")){
+                } else if (val.equals("7")) {
                     Intent intent = new Intent(Intent.ACTION_VIEW);
                     intent.setData(Uri.parse("http://amzn.to/2iuJWVM"));
                     startActivity(intent);
-                }else if(val.equals("8")){
+                } else if (val.equals("8")) {
                     Intent intent = new Intent(Intent.ACTION_VIEW);
                     intent.setData(Uri.parse("http://amzn.to/2iGV95s"));
                     startActivity(intent);
-                }else if(val.equals("9")){
+                } else if (val.equals("9")) {
                     Intent intent = new Intent(Intent.ACTION_VIEW);
                     intent.setData(Uri.parse("http://amzn.to/2hJv7Sa"));
                     startActivity(intent);
@@ -247,7 +243,7 @@ AdLoad();
         // Second parameter - Layout for the row
         // Third parameter - ID of the TextView to which the data is written
         // Forth - the Array of data
-        String[] Pharmaceutics= new String[] {
+        String[] Pharmaceutics = new String[]{
                 "1. Modern Pharmaceutics by banker Rhodes",
                 "2. Physical Pharmacy",
                 "3. Pharmaceutics: The Science of Dosage Form Design by Aulton",
@@ -260,9 +256,8 @@ AdLoad();
         };
 
 
-
         ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(this,
-                R.layout.country_list, R.id.textView,Pharmaceutics);
+                R.layout.country_list, R.id.textView, Pharmaceutics);
 
 
         // Assign adapter to ListView
@@ -276,21 +271,20 @@ AdLoad();
                                     int position, long id) {
 
                 // ListView Clicked item index
-                int itemPosition     = position;
+                int itemPosition = position;
 
                 // ListView Clicked item value
-                String  itemValue    = (String) listView2.getItemAtPosition(position);
+                String itemValue = (String) listView2.getItemAtPosition(position);
 
                 // Show Alert
                 Intent intent = new Intent(Intent.ACTION_VIEW);
-                intent.setData(Uri.parse("http://www.amazon.in/s/ref=nb_sb_noss?url=search-alias%3Dstripbooks&field-keywords="+itemValue+"&tag=pharstud-21"));
+                intent.setData(Uri.parse("http://www.amazon.in/s/ref=nb_sb_noss?url=search-alias%3Dstripbooks&field-keywords=" + itemValue + "&tag=pharstud-21"));
                 startActivity(intent);
 
 
             }
 
         });
-
 
 
         // PHARMACEUTICAL JURISPRUDENCE List view
@@ -301,7 +295,7 @@ AdLoad();
         // Second parameter - Layout for the row
         // Third parameter - ID of the TextView to which the data is written
         // Forth - the Array of data
-        String[] PJ= new String[] {
+        String[] PJ = new String[]{
                 "1. Patent Act",
                 "2. Pharmacy Act",
                 "3. Drug and Cosmetic act",
@@ -310,9 +304,8 @@ AdLoad();
         };
 
 
-
         ArrayAdapter<String> adapter3 = new ArrayAdapter<String>(this,
-                R.layout.country_list, R.id.textView,PJ);
+                R.layout.country_list, R.id.textView, PJ);
 
 
         // Assign adapter to ListView
@@ -326,16 +319,15 @@ AdLoad();
                                     int position, long id) {
 
                 // ListView Clicked item index
-                int itemPosition     = position;
+                int itemPosition = position;
 
                 // ListView Clicked item value
-                String  itemValue    = (String) listView3.getItemAtPosition(position);
+                String itemValue = (String) listView3.getItemAtPosition(position);
 
                 // Show Alert
                 Intent intent = new Intent(Intent.ACTION_VIEW);
-                intent.setData(Uri.parse("http://www.amazon.in/s/ref=nb_sb_noss?url=search-alias%3Dstripbooks&field-keywords="+itemValue+"&tag=pharstud-21"));
+                intent.setData(Uri.parse("http://www.amazon.in/s/ref=nb_sb_noss?url=search-alias%3Dstripbooks&field-keywords=" + itemValue + "&tag=pharstud-21"));
                 startActivity(intent);
-
 
 
             }
@@ -351,7 +343,7 @@ AdLoad();
         // Second parameter - Layout for the row
         // Third parameter - ID of the TextView to which the data is written
         // Forth - the Array of data
-        String[] PC= new String[] {
+        String[] PC = new String[]{
                 "1. Synthesis of Essential Drugs",
                 "2. Contemporary Drug Synthesis",
                 "3. Essentials of Pharmaceutical Chemistry, 3rd Edition",
@@ -368,9 +360,8 @@ AdLoad();
         };
 
 
-
         ArrayAdapter<String> adapter4 = new ArrayAdapter<String>(this,
-                R.layout.country_list, R.id.textView,PC);
+                R.layout.country_list, R.id.textView, PC);
 
 
         // Assign adapter to ListView
@@ -384,18 +375,16 @@ AdLoad();
                                     int position, long id) {
 
                 // ListView Clicked item index
-                int itemPosition     = position;
+                int itemPosition = position;
 
                 // ListView Clicked item value
-                String  itemValue    = (String) listView4.getItemAtPosition(position);
+                String itemValue = (String) listView4.getItemAtPosition(position);
 
                 // Show Alert
 
                 Intent intent = new Intent(Intent.ACTION_VIEW);
-                intent.setData(Uri.parse("http://www.amazon.in/s/ref=nb_sb_noss?url=search-alias%3Dstripbooks&field-keywords="+itemValue+"&tag=pharstud-21"));
+                intent.setData(Uri.parse("http://www.amazon.in/s/ref=nb_sb_noss?url=search-alias%3Dstripbooks&field-keywords=" + itemValue + "&tag=pharstud-21"));
                 startActivity(intent);
-
-
 
 
             }
@@ -410,7 +399,7 @@ AdLoad();
         // Second parameter - Layout for the row
         // Third parameter - ID of the TextView to which the data is written
         // Forth - the Array of data
-        String[] BC= new String[] {
+        String[] BC = new String[]{
                 "1. Harpers Biochemistry",
                 "2. MCQs in Biochemistry",
                 "3. Biochemistry: by Jermy M. Berg & Stryer",
@@ -418,9 +407,8 @@ AdLoad();
         };
 
 
-
         ArrayAdapter<String> adapter5 = new ArrayAdapter<String>(this,
-                R.layout.country_list, R.id.textView,BC);
+                R.layout.country_list, R.id.textView, BC);
 
 
         // Assign adapter to ListView
@@ -434,18 +422,16 @@ AdLoad();
                                     int position, long id) {
 
                 // ListView Clicked item index
-                int itemPosition     = position;
+                int itemPosition = position;
 
                 // ListView Clicked item value
-                String  itemValue    = (String) listView5.getItemAtPosition(position);
+                String itemValue = (String) listView5.getItemAtPosition(position);
 
                 // Show Alert
 
                 Intent intent = new Intent(Intent.ACTION_VIEW);
-                intent.setData(Uri.parse("http://www.amazon.in/s/ref=nb_sb_noss?url=search-alias%3Dstripbooks&field-keywords="+itemValue+"&tag=pharstud-21"));
+                intent.setData(Uri.parse("http://www.amazon.in/s/ref=nb_sb_noss?url=search-alias%3Dstripbooks&field-keywords=" + itemValue + "&tag=pharstud-21"));
                 startActivity(intent);
-
-
 
 
             }
@@ -460,7 +446,7 @@ AdLoad();
         // Second parameter - Layout for the row
         // Third parameter - ID of the TextView to which the data is written
         // Forth - the Array of data
-        String[] MB= new String[] {
+        String[] MB = new String[]{
                 "1. Pharmaceutical Microbiology by asutoshkar",
                 "2. Microbiology by presscot",
                 "3. Medical Microbiology",
@@ -469,9 +455,8 @@ AdLoad();
         };
 
 
-
         ArrayAdapter<String> adapter6 = new ArrayAdapter<String>(this,
-                R.layout.country_list, R.id.textView,MB);
+                R.layout.country_list, R.id.textView, MB);
 
 
         // Assign adapter to ListView
@@ -485,18 +470,16 @@ AdLoad();
                                     int position, long id) {
 
                 // ListView Clicked item index
-                int itemPosition     = position;
+                int itemPosition = position;
 
                 // ListView Clicked item value
-                String  itemValue    = (String) listView6.getItemAtPosition(position);
+                String itemValue = (String) listView6.getItemAtPosition(position);
 
                 // Show Alert
 
                 Intent intent = new Intent(Intent.ACTION_VIEW);
-                intent.setData(Uri.parse("http://www.amazon.in/s/ref=nb_sb_noss?url=search-alias%3Dstripbooks&field-keywords="+itemValue+"&tag=pharstud-21"));
+                intent.setData(Uri.parse("http://www.amazon.in/s/ref=nb_sb_noss?url=search-alias%3Dstripbooks&field-keywords=" + itemValue + "&tag=pharstud-21"));
                 startActivity(intent);
-
-
 
 
             }
@@ -511,7 +494,7 @@ AdLoad();
         // Second parameter - Layout for the row
         // Third parameter - ID of the TextView to which the data is written
         // Forth - the Array of data
-        String[] Pcogno= new String[] {
+        String[] Pcogno = new String[]{
                 "1. Pharmacognosy by treese and Evans",
                 "2. Illustrated Pocket Dictionary of Chromatography",
                 "3. WHO guidelines for quality standards of medicinal plants",
@@ -519,9 +502,8 @@ AdLoad();
         };
 
 
-
         ArrayAdapter<String> adapter7 = new ArrayAdapter<String>(this,
-                R.layout.country_list, R.id.textView,Pcogno);
+                R.layout.country_list, R.id.textView, Pcogno);
 
 
         // Assign adapter to ListView
@@ -535,16 +517,15 @@ AdLoad();
                                     int position, long id) {
 
                 // ListView Clicked item index
-                int itemPosition     = position;
+                int itemPosition = position;
 
                 // ListView Clicked item value
-                String  itemValue    = (String) listView7.getItemAtPosition(position);
+                String itemValue = (String) listView7.getItemAtPosition(position);
 
                 // Show Alert
                 Intent intent = new Intent(Intent.ACTION_VIEW);
-                intent.setData(Uri.parse("http://www.amazon.in/s/ref=nb_sb_noss?url=search-alias%3Dstripbooks&field-keywords="+itemValue+"&tag=pharstud-21"));
+                intent.setData(Uri.parse("http://www.amazon.in/s/ref=nb_sb_noss?url=search-alias%3Dstripbooks&field-keywords=" + itemValue + "&tag=pharstud-21"));
                 startActivity(intent);
-
 
 
             }
@@ -560,7 +541,7 @@ AdLoad();
         // Second parameter - Layout for the row
         // Third parameter - ID of the TextView to which the data is written
         // Forth - the Array of data
-        String[] BPceutics= new String[] {
+        String[] BPceutics = new String[]{
                 "1. A Handbook of Bioanalysis and Drug Metabolism",
                 "2. Biopharmaceutics Applications in Drug Development",
                 "3. Pharmacokinetics: by Gibaldi",
@@ -568,9 +549,8 @@ AdLoad();
         };
 
 
-
         ArrayAdapter<String> adapter8 = new ArrayAdapter<String>(this,
-                R.layout.country_list, R.id.textView,BPceutics);
+                R.layout.country_list, R.id.textView, BPceutics);
 
 
         // Assign adapter to ListView
@@ -584,17 +564,15 @@ AdLoad();
                                     int position, long id) {
 
                 // ListView Clicked item index
-                int itemPosition     = position;
+                int itemPosition = position;
 
                 // ListView Clicked item value
-                String  itemValue    = (String) listView8.getItemAtPosition(position);
+                String itemValue = (String) listView8.getItemAtPosition(position);
 
                 // Show Alert
                 Intent intent = new Intent(Intent.ACTION_VIEW);
-                intent.setData(Uri.parse("http://www.amazon.in/s/ref=nb_sb_noss?url=search-alias%3Dstripbooks&field-keywords="+itemValue+"&tag=pharstud-21"));
+                intent.setData(Uri.parse("http://www.amazon.in/s/ref=nb_sb_noss?url=search-alias%3Dstripbooks&field-keywords=" + itemValue + "&tag=pharstud-21"));
                 startActivity(intent);
-
-
 
 
             }
@@ -608,12 +586,12 @@ AdLoad();
         // Second parameter - Layout for the row
         // Third parameter - ID of the TextView to which the data is written
         // Forth - the Array of data
-        String[] BOKPHARMA= new String[] {
+        String[] BOKPHARMA = new String[]{
                 "1. Remington: The Science and Practice of Pharmacy (Remington the Science and Practice of Pharmacy)",
                 "2. Comprehensive Pharmacy Review by shergel",
         };
         ArrayAdapter<String> adapter9 = new ArrayAdapter<String>(this,
-                R.layout.country_list, R.id.textView,BOKPHARMA);
+                R.layout.country_list, R.id.textView, BOKPHARMA);
         // Assign adapter to ListView
         listView9.setAdapter(adapter9);
         // ListView Item Click Listener
@@ -622,18 +600,17 @@ AdLoad();
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
                 // ListView Clicked item index
-                int itemPosition     = position;
+                int itemPosition = position;
                 // ListView Clicked item value
-                String  itemValue    = (String) listView9.getItemAtPosition(position);
+                String itemValue = (String) listView9.getItemAtPosition(position);
 
                 Intent intent = new Intent(Intent.ACTION_VIEW);
-                intent.setData(Uri.parse("http://www.amazon.in/s/ref=nb_sb_noss?url=search-alias%3Dstripbooks&field-keywords="+itemValue+"&tag=pharstud-21"));
+                intent.setData(Uri.parse("http://www.amazon.in/s/ref=nb_sb_noss?url=search-alias%3Dstripbooks&field-keywords=" + itemValue + "&tag=pharstud-21"));
                 startActivity(intent);
 
 
             }
         });
-
 
 
         //BIOTECHNOLOGY List view
@@ -643,12 +620,12 @@ AdLoad();
         // Second parameter - Layout for the row
         // Third parameter - ID of the TextView to which the data is written
         // Forth - the Array of data
-        String[] BT= new String[] {
+        String[] BT = new String[]{
                 "1. Pharmaceutical Biotechnology",
 
         };
         ArrayAdapter<String> adapter10 = new ArrayAdapter<String>(this,
-                R.layout.country_list, R.id.textView,BT);
+                R.layout.country_list, R.id.textView, BT);
         // Assign adapter to ListView
         listView10.setAdapter(adapter10);
         // ListView Item Click Listener
@@ -657,12 +634,12 @@ AdLoad();
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
                 // ListView Clicked item index
-                int itemPosition     = position;
+                int itemPosition = position;
                 // ListView Clicked item value
-                String  itemValue    = (String) listView10.getItemAtPosition(position);
+                String itemValue = (String) listView10.getItemAtPosition(position);
                 // Show Alert
                 Intent intent = new Intent(Intent.ACTION_VIEW);
-                intent.setData(Uri.parse("http://www.amazon.in/s/ref=nb_sb_noss?url=search-alias%3Dstripbooks&field-keywords="+itemValue+"&tag=pharstud-21"));
+                intent.setData(Uri.parse("http://www.amazon.in/s/ref=nb_sb_noss?url=search-alias%3Dstripbooks&field-keywords=" + itemValue + "&tag=pharstud-21"));
                 startActivity(intent);
 
             }
@@ -676,7 +653,7 @@ AdLoad();
         // Second parameter - Layout for the row
         // Third parameter - ID of the TextView to which the data is written
         // Forth - the Array of data
-        String[] PA= new String[] {
+        String[] PA = new String[]{
                 "1. Handbook of Pharmaceutical Analysis (Drugs and the Pharmaceutical Sciences)",
                 "2. Instant Notes in Analytical Chemistry by Kealey & Haines",
                 "3. Vogel’s Textbook of Quantitative Chemical Analysis, 5th edition",
@@ -685,7 +662,7 @@ AdLoad();
                 "6.Spectroscopy: by Silverstein"
         };
         ArrayAdapter<String> adapter11 = new ArrayAdapter<String>(this,
-                R.layout.country_list, R.id.textView,PA);
+                R.layout.country_list, R.id.textView, PA);
         // Assign adapter to ListView
         listView11.setAdapter(adapter11);
         // ListView Item Click Listener
@@ -694,12 +671,12 @@ AdLoad();
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
                 // ListView Clicked item index
-                int itemPosition     = position;
+                int itemPosition = position;
                 // ListView Clicked item value
-                String  itemValue    = (String) listView11.getItemAtPosition(position);
+                String itemValue = (String) listView11.getItemAtPosition(position);
                 // Show Alert
                 Intent intent = new Intent(Intent.ACTION_VIEW);
-                intent.setData(Uri.parse("http://www.amazon.in/s/ref=nb_sb_noss?url=search-alias%3Dstripbooks&field-keywords="+itemValue+"&tag=pharstud-21"));
+                intent.setData(Uri.parse("http://www.amazon.in/s/ref=nb_sb_noss?url=search-alias%3Dstripbooks&field-keywords=" + itemValue + "&tag=pharstud-21"));
                 startActivity(intent);
 
             }
@@ -713,12 +690,12 @@ AdLoad();
         // Second parameter - Layout for the row
         // Third parameter - ID of the TextView to which the data is written
         // Forth - the Array of data
-        String[] BOOKPA= new String[] {
+        String[] BOOKPA = new String[]{
                 "1. Text Book of Medical Physiology by Guyton",
                 "2. Anatomy & Physiology by Ross & wilson",
         };
         ArrayAdapter<String> adapter12 = new ArrayAdapter<String>(this,
-                R.layout.country_list, R.id.textView,BOOKPA);
+                R.layout.country_list, R.id.textView, BOOKPA);
         // Assign adapter to ListView
         listView12.setAdapter(adapter12);
         // ListView Item Click Listener
@@ -727,12 +704,12 @@ AdLoad();
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
                 // ListView Clicked item index
-                int itemPosition     = position;
+                int itemPosition = position;
                 // ListView Clicked item value
-                String  itemValue    = (String) listView12.getItemAtPosition(position);
+                String itemValue = (String) listView12.getItemAtPosition(position);
                 // Show Alert
                 Intent intent = new Intent(Intent.ACTION_VIEW);
-                intent.setData(Uri.parse("http://www.amazon.in/s/ref=nb_sb_noss?url=search-alias%3Dstripbooks&field-keywords="+itemValue+"&tag=pharstud-21"));
+                intent.setData(Uri.parse("http://www.amazon.in/s/ref=nb_sb_noss?url=search-alias%3Dstripbooks&field-keywords=" + itemValue + "&tag=pharstud-21"));
                 startActivity(intent);
 
 
@@ -741,11 +718,9 @@ AdLoad();
 
     }
 
-    public boolean installed = false;
+    public void AdLoad() {
 
-    public void AdLoad(){
-
-        String APPID=getString(R.string.MY_APP_ID);
+        String APPID = getString(R.string.AdMob_APP_ID);
 
         MobileAds.initialize(getApplicationContext(), APPID);
 
@@ -754,11 +729,11 @@ AdLoad();
 
         isAppInstalled("devesh.ephrine.gpat.pro");
 
-        if(installed==true){
+        if (installed == true) {
             mAdView.setVisibility(View.GONE);
-            Log.e("GPAT"," AD Disabled");
+            Log.e("GPAT", " AD Disabled");
 
-        }else {
+        } else {
 
             Bundle extras = new FacebookAdapter.FacebookExtrasBundleBuilder()
                     .setNativeAdChoicesIconExpandable(false)
@@ -769,7 +744,7 @@ AdLoad();
                     .build();
             //AdRequest adRequest = new AdRequest.Builder().build();
             mAdView.loadAd(adRequest);
-            Log.e("GPAT"," AD Loaded");
+            Log.e("GPAT", " AD Loaded");
 
         }
 
@@ -787,8 +762,6 @@ AdLoad();
         }
         return installed;
     }
-
-
 
 
 }

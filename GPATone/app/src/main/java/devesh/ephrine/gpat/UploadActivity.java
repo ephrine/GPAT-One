@@ -5,30 +5,28 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.media.Image;
 import android.net.ConnectivityManager;
 import android.net.Uri;
-import android.support.annotation.NonNull;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.util.Log;
 import android.view.View;
 import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
 import com.facebook.CallbackManager;
 import com.google.ads.mediation.facebook.FacebookAdapter;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.tasks.Continuation;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -37,7 +35,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.OnPausedListener;
 import com.google.firebase.storage.OnProgressListener;
+import com.google.firebase.storage.StorageException;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
@@ -57,40 +57,15 @@ public class UploadActivity extends Activity {
     public int no;
     public String title;
     public ProgressBar progressbar;
-    FirebaseDatabase database = FirebaseDatabase.getInstance();
     public LinearLayout layoutprogress;
     public LinearLayout layoutdata;
     public UploadTask uploadTask;
+    public String TAG = "GPAT One";
+    public boolean installed = false;
+    FirebaseDatabase database = FirebaseDatabase.getInstance();
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
     private CallbackManager mCallbackManager;
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_upload);
-        layoutprogress = (LinearLayout) findViewById(R.id.llprogress);
-        layoutprogress.setVisibility(View.GONE);
-        AdLoad();
-        GetProfile();
-        DatabaseReference total = database.getReference("GPAT/USERS/total");
-        total.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                // This method is called once with the initial value and again
-                // whenever data at this location is updated.
-                String value = dataSnapshot.getValue(String.class);
-                Log.d("GPAT:", "subject is: " + value);
-                no = Integer.parseInt(value);
-            }
-
-            @Override
-            public void onCancelled(DatabaseError error) {
-                // Failed to read value
-                Log.w("GPAT:", "Failed to read value.", error.toException());
-            }
-        });
-    }
 
     public static String getMacAddr() {
         try {
@@ -117,6 +92,33 @@ public class UploadActivity extends Activity {
             //handle exception
         }
         return "";
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_upload);
+        layoutprogress = (LinearLayout) findViewById(R.id.llprogress);
+        layoutprogress.setVisibility(View.GONE);
+        AdLoad();
+        GetProfile();
+        DatabaseReference total = database.getReference("GPAT/USERS/total");
+        total.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                // This method is called once with the initial value and again
+                // whenever data at this location is updated.
+                String value = dataSnapshot.getValue(String.class);
+                Log.d("GPAT:", "subject is: " + value);
+                no = Integer.parseInt(value);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+                // Failed to read value
+                Log.w("GPAT:", "Failed to read value.", error.toException());
+            }
+        });
     }
 
     public void selectfile(View v) {
@@ -147,9 +149,127 @@ public class UploadActivity extends Activity {
 
             // Create a reference to "mountains.jpg"
 
-            StorageReference riversRef = storageRef.child("/" + uri.getLastPathSegment());
+            final StorageReference riversRef = storageRef.child("/" + uri.getLastPathSegment());
             uploadTask = riversRef.putFile(fileuri);
 
+            //----------------------------
+
+
+            Task<Uri> urlTask = uploadTask.continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {
+                @Override
+                public Task<Uri> then(@NonNull Task<UploadTask.TaskSnapshot> task) throws Exception {
+                    if (!task.isSuccessful()) {
+                        throw task.getException();
+                    }
+
+                    // Continue with the task to get the download URL
+                    return riversRef.getDownloadUrl();
+                }
+            }).addOnCompleteListener(new OnCompleteListener<Uri>() {
+                @Override
+                public void onComplete(@NonNull Task<Uri> task) {
+                    if (task.isSuccessful()) {
+                        Uri downloadUri = task.getResult();
+                        Log.i(TAG, "file upload complete: " + downloadUri.toString());
+
+
+                        Uri downloadUrl = downloadUri;
+                        Log.i("GPAT", "Success for upload: " + downloadUrl);
+
+
+                        // EditText nametx = (EditText) findViewById(R.id.editText);
+                        EditText subtx = (EditText) findViewById(R.id.editText2);
+                        EditText titletx = (EditText) findViewById(R.id.editText3);
+
+                        //      EditText emailtx=(EditText)findViewById(R.id.editText3);
+
+                        // fname = nametx.getText().toString();
+
+                        fname = "By " + FBname;
+                        subject = subtx.getText().toString();
+                        title = titletx.getText().toString();
+
+                        //      emailid=emailtx.getText().toString();
+
+                        // Write a message to the database
+
+                        DatabaseReference addsub = database.getReference("GPAT/USERS/" + no + "/sub");
+                        addsub.setValue(subject.toString());
+
+                        DatabaseReference addtitle = database.getReference("GPAT/USERS/" + no + "/title");
+                        addtitle.setValue(title.toString());
+
+                        DatabaseReference addname = database.getReference("GPAT/USERS/" + no + "/user");
+                        addname.setValue(fname.toString());
+
+                        DatabaseReference durl = database.getReference("GPAT/USERS/" + no + "/url");
+                        durl.setValue(downloadUrl.toString());
+
+                        DatabaseReference addmac = database.getReference("GPAT/USERS/" + no + "/MACAddress");
+                        addmac.setValue(getMacAddr().toString());
+
+                        DatabaseReference mac = database.getReference("GPAT/USERS/MACAddress/" + getMacAddr().toString() + "/ban");
+                        mac.setValue("f");
+
+                        DatabaseReference docType = database.getReference("GPAT/USERS/" + no + "/type");
+                        docType.setValue(DocType);
+
+
+                        DatabaseReference number = database.getReference("GPAT/USERS/total");
+                        no = no + 1;
+                        number.setValue("" + no + "");
+
+                        //   dialog.hide();
+                        //setContentView();
+                        finish();
+
+
+                    } else {
+
+
+                    }
+                }
+            }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception exception) {
+                    Log.e(TAG, "ERROR in file Upload: \n " + exception.toString());
+
+                    int errorCode = ((StorageException) exception).getErrorCode();
+                    String errorMessage = exception.getMessage();
+
+                    Log.e(TAG, "ERROR in file Storage Upload: \n " + errorMessage + "\n int: " + String.valueOf(errorCode));
+
+                    Toast.makeText(UploadActivity.this, "ERROR: \n" + errorMessage,
+                            Toast.LENGTH_LONG).show();
+
+                }
+            });
+
+
+            // Observe state change events such as progress, pause, and resume
+            uploadTask.addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
+                @Override
+                public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
+                    double progress = (100.0 * taskSnapshot.getBytesTransferred()) / taskSnapshot.getTotalByteCount();
+                    System.out.println("Upload is " + progress + "% done");
+
+                    int i = (int) progress;
+                    // String pr = String.valueOf(i);
+                    System.out.println("Upload is " + progress + "% done");
+                    progressbar = (ProgressBar) findViewById(R.id.progressBar5);
+                    progressbar.setProgress(i);
+
+                }
+            }).addOnPausedListener(new OnPausedListener<UploadTask.TaskSnapshot>() {
+                @Override
+                public void onPaused(UploadTask.TaskSnapshot taskSnapshot) {
+                    System.out.println("Upload is paused");
+                }
+            });
+
+
+/*
+            //-------------------- OLD Code-------------
 // Register observers to listen for when the download is done or if it fails
             uploadTask.addOnFailureListener(new OnFailureListener() {
                 @Override
@@ -226,7 +346,7 @@ public class UploadActivity extends Activity {
                     //dialog.show();
                 }
             });
-
+*/
 
         } else {
             Log.i("GPAT", "NO INPUT_______________-");
@@ -280,7 +400,7 @@ public class UploadActivity extends Activity {
                 if (extension.equals(".pdf")) {
                     Log.i("GPAT", "Accepted " + extension);
                     fileuri = uri;
-DocType="PDF";
+                    DocType = "PDF";
                     Button Fileselect = (Button) findViewById(R.id.buttonFileSelect);
                     Fileselect.setVisibility(View.GONE);
                     LinearLayout LLFile = (LinearLayout) findViewById(R.id.LLFileName);
@@ -294,7 +414,7 @@ DocType="PDF";
                     Fileselect.setVisibility(View.GONE);
                     LinearLayout LLFile = (LinearLayout) findViewById(R.id.LLFileName);
                     LLFile.setVisibility(View.VISIBLE);
-                    DocType="PPT";
+                    DocType = "PPT";
 
                     fileuri = uri;
                 } else if (extension.equals(".ppt")) {
@@ -303,7 +423,7 @@ DocType="PDF";
                     Fileselect.setVisibility(View.GONE);
                     LinearLayout LLFile = (LinearLayout) findViewById(R.id.LLFileName);
                     LLFile.setVisibility(View.VISIBLE);
-                    DocType="PPT";
+                    DocType = "PPT";
 
                     fileuri = uri;
 
@@ -313,7 +433,7 @@ DocType="PDF";
                     Fileselect.setVisibility(View.GONE);
                     LinearLayout LLFile = (LinearLayout) findViewById(R.id.LLFileName);
                     LLFile.setVisibility(View.VISIBLE);
-                    DocType="PPT";
+                    DocType = "PPT";
 
                     fileuri = uri;
                 } else if (extension.equals(".odp")) {
@@ -322,7 +442,7 @@ DocType="PDF";
                     Fileselect.setVisibility(View.GONE);
                     LinearLayout LLFile = (LinearLayout) findViewById(R.id.LLFileName);
                     LLFile.setVisibility(View.VISIBLE);
-                    DocType="PPT";
+                    DocType = "PPT";
 
                     fileuri = uri;
                 } else if (extension.equals(".pps")) {
@@ -331,7 +451,7 @@ DocType="PDF";
                     Fileselect.setVisibility(View.GONE);
                     LinearLayout LLFile = (LinearLayout) findViewById(R.id.LLFileName);
                     LLFile.setVisibility(View.VISIBLE);
-                    DocType="PPT";
+                    DocType = "PPT";
 
                     fileuri = uri;
                 }
@@ -342,7 +462,7 @@ DocType="PDF";
                     Fileselect.setVisibility(View.GONE);
                     LinearLayout LLFile = (LinearLayout) findViewById(R.id.LLFileName);
                     LLFile.setVisibility(View.VISIBLE);
-                    DocType="DOC";
+                    DocType = "DOC";
 
                     fileuri = uri;
                 } else if (extension.equals(".doc")) {
@@ -351,7 +471,7 @@ DocType="PDF";
                     Fileselect.setVisibility(View.GONE);
                     LinearLayout LLFile = (LinearLayout) findViewById(R.id.LLFileName);
                     LLFile.setVisibility(View.VISIBLE);
-                    DocType="DOC";
+                    DocType = "DOC";
                     fileuri = uri;
                 } else if (extension.equals(".odt")) {
                     Log.i("GPAT", "Accepted " + extension);
@@ -359,7 +479,7 @@ DocType="PDF";
                     Fileselect.setVisibility(View.GONE);
                     LinearLayout LLFile = (LinearLayout) findViewById(R.id.LLFileName);
                     LLFile.setVisibility(View.VISIBLE);
-                    DocType="DOC";
+                    DocType = "DOC";
                     fileuri = uri;
                 } else if (extension.equals(".docm")) {
                     Log.i("GPAT", "Accepted " + extension);
@@ -367,7 +487,7 @@ DocType="PDF";
                     Fileselect.setVisibility(View.GONE);
                     LinearLayout LLFile = (LinearLayout) findViewById(R.id.LLFileName);
                     LLFile.setVisibility(View.VISIBLE);
-                    DocType="DOC";
+                    DocType = "DOC";
                     fileuri = uri;
                 } else {
                     Log.i("GPAT", "not Accepted " + extension);
@@ -439,11 +559,9 @@ DocType="PDF";
 
     }
 
-    public boolean installed = false;
-
     public void AdLoad() {
 
-        String APPID = getString(R.string.MY_APP_ID);
+        String APPID = getString(R.string.AdMob_APP_ID);
 
         MobileAds.initialize(getApplicationContext(), APPID);
 
@@ -465,7 +583,7 @@ DocType="PDF";
             AdRequest adRequest = new AdRequest.Builder()
                     .addNetworkExtrasBundle(FacebookAdapter.class, extras)
                     .build();
-          //  AdRequest adRequest = new AdRequest.Builder().build();
+            //  AdRequest adRequest = new AdRequest.Builder().build();
             mAdView.loadAd(adRequest);
             Log.e("GPAT", " AD Loaded");
 

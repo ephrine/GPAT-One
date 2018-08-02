@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     xmlns:ads="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
 
     android:id="@+id/activity_book"
     android:layout_width="match_parent"
@@ -10,60 +10,58 @@
     tools:context="devesh.ephrine.gpat.BookActivity">
 
 
-
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_above="@+id/adView"
         android:layout_alignParentTop="true"
-        android:paddingLeft="@dimen/activity_horizontal_margin"
-        android:paddingRight="@dimen/activity_horizontal_margin"
-
         android:layout_centerHorizontal="true"
-        android:layout_above="@+id/adView">
+
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <TextView
-                android:text="Best Books for GPAT Study"
+                android:id="@+id/textView10"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/textView10"
-                android:typeface="serif"
+                android:text="Best Books for GPAT Study"
+                android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.AppCompat.Headline"
                 android:textStyle="normal|bold"
-                android:textAlignment="center" />
+                android:typeface="serif" />
 
             <Space
                 android:layout_width="match_parent"
                 android:layout_height="20dp" />
 
             <TextView
-                android:text="PHARMACOLOGY"
+                android:id="@+id/textView15"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/textView15"
+                android:text="PHARMACOLOGY"
+                android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.AppCompat.Headline"
-                android:textStyle="normal|bold|italic"
-                android:textAlignment="center" />
+                android:textStyle="normal|bold|italic" />
 
             <ListView
                 android:id="@+id/listview1"
                 android:layout_width="match_parent"
-                android:layout_height="690dp"
-                />
+                android:layout_height="690dp" />
 
             <TextView
-                android:text="CLINICAL PHARMACOLOGY"
-                android:layout_width="match_parent"
-                android:paddingTop="15dp"
-                android:layout_height="wrap_content"
                 android:id="@+id/textView17"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="15dp"
+                android:text="CLINICAL PHARMACOLOGY"
+                android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.AppCompat.Headline"
-                android:textStyle="normal|bold|italic"
-                android:textAlignment="center"  />
+                android:textStyle="normal|bold|italic" />
 
             <ListView
                 android:id="@+id/listview2"
@@ -71,52 +69,55 @@
                 android:layout_height="630dp" />
 
             <TextView
-                android:text="PHARMACEUTICS"
+                android:id="@+id/textView18"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/textView18"
+                android:text="PHARMACEUTICS"
+                android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.AppCompat.Headline"
-                android:textStyle="normal|bold|italic"
-                android:textAlignment="center"  />
+                android:textStyle="normal|bold|italic" />
 
             <ListView
                 android:id="@+id/listview3"
                 android:layout_width="match_parent"
                 android:layout_height="500dp" />
+
             <TextView
-                android:text="PHARMACEUTICAL JURISPRUDENCE"
+                android:id="@+id/textView19"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/textView19"
+                android:text="PHARMACEUTICAL JURISPRUDENCE"
+                android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.AppCompat.Headline"
-                android:textStyle="normal|bold|italic"
-                android:textAlignment="center"  />
+                android:textStyle="normal|bold|italic" />
 
             <ListView
                 android:id="@+id/listview4"
                 android:layout_width="match_parent"
                 android:layout_height="250dp" />
+
             <TextView
-                android:text="PHARMACEUTICAL CHEMISTRY"
+                android:id="@+id/textView20"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/textView20"
+                android:text="PHARMACEUTICAL CHEMISTRY"
+                android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.AppCompat.Headline"
-                android:textStyle="normal|bold|italic"
-                android:textAlignment="center"  />
+                android:textStyle="normal|bold|italic" />
 
             <ListView
                 android:id="@+id/listview5"
                 android:layout_width="match_parent"
                 android:layout_height="840dp" />
+
             <TextView
-                android:text="BIOCHEMISTRY"
+                android:id="@+id/textView21"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/textView21"
+                android:text="BIOCHEMISTRY"
+                android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.AppCompat.Headline"
-                android:textStyle="normal|bold|italic"
-                android:textAlignment="center"  />
+                android:textStyle="normal|bold|italic" />
 
             <ListView
                 android:id="@+id/listview6"
@@ -125,26 +126,27 @@
 
 
             <TextView
-                android:text="MICROBIOLOGY"
+                android:id="@+id/textView22"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/textView22"
+                android:text="MICROBIOLOGY"
+                android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.AppCompat.Headline"
-                android:textStyle="normal|bold|italic"
-                android:textAlignment="center" />
+                android:textStyle="normal|bold|italic" />
 
             <ListView
                 android:id="@+id/listview7"
                 android:layout_width="match_parent"
                 android:layout_height="320dp" />
+
             <TextView
-                android:text="PHARMACOGNOSY"
+                android:id="@+id/textView23"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/textView23"
+                android:text="PHARMACOGNOSY"
+                android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.AppCompat.Headline"
-                android:textStyle="normal|bold|italic"
-                android:textAlignment="center"  />
+                android:textStyle="normal|bold|italic" />
 
             <ListView
                 android:id="@+id/listview8"
@@ -152,13 +154,13 @@
                 android:layout_height="260dp" />
 
             <TextView
-                android:text="BIOPHARMCEUTICS"
+                android:id="@+id/textView24"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/textView24"
+                android:text="BIOPHARMCEUTICS"
+                android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.AppCompat.Headline"
-                android:textStyle="normal|bold|italic"
-                android:textAlignment="center"  />
+                android:textStyle="normal|bold|italic" />
 
             <ListView
                 android:id="@+id/listview9"
@@ -166,52 +168,55 @@
                 android:layout_height="260dp" />
 
             <TextView
-                android:text="BOOKS COVER ALL SUBJECTS OF PHARMACY"
+                android:id="@+id/textView25"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/textView25"
+                android:text="BOOKS COVER ALL SUBJECTS OF PHARMACY"
+                android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.AppCompat.Headline"
-                android:textStyle="normal|bold|italic"
-                android:textAlignment="center"  />
+                android:textStyle="normal|bold|italic" />
 
             <ListView
                 android:id="@+id/listview10"
                 android:layout_width="match_parent"
                 android:layout_height="157dp" />
+
             <TextView
-                android:text="BIOTECHNOLOGY"
+                android:id="@+id/textView26"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/textView26"
+                android:text="BIOTECHNOLOGY"
+                android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.AppCompat.Headline"
-                android:textStyle="normal|bold|italic"
-                android:textAlignment="center"  />
+                android:textStyle="normal|bold|italic" />
 
             <ListView
                 android:id="@+id/listview11"
                 android:layout_width="match_parent"
                 android:layout_height="100dp" />
+
             <TextView
-                android:text="PHARMACEUTICAL ANALYSIS"
+                android:id="@+id/textView27"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/textView27"
+                android:text="PHARMACEUTICAL ANALYSIS"
+                android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.AppCompat.Headline"
-                android:textStyle="normal|bold|italic"
-                android:textAlignment="center"  />
+                android:textStyle="normal|bold|italic" />
 
             <ListView
                 android:id="@+id/listview12"
                 android:layout_width="match_parent"
                 android:layout_height="400dp" />
+
             <TextView
-                android:text="BOOKS FOR ANATOMY AND PHYSIOLOGY"
+                android:id="@+id/textView28"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/textView28"
+                android:text="BOOKS FOR ANATOMY AND PHYSIOLOGY"
+                android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.AppCompat.Headline"
-                android:textStyle="normal|bold|italic"
-                android:textAlignment="center"  />
+                android:textStyle="normal|bold|italic" />
 
             <ListView
                 android:id="@+id/listview13"
@@ -226,10 +231,9 @@
         android:id="@+id/adView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
         ads:adSize="SMART_BANNER"
-        ads:adUnitId="@string/my_banner_ad_unit_id3_StudyBooks">
-    </com.google.android.gms.ads.AdView>
+        ads:adUnitId="@string/Ad_Banner1"></com.google.android.gms.ads.AdView>
 
 </RelativeLayout>

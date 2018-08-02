@@ -5,26 +5,26 @@
 
     <include
         android:id="@+id/HomeXML"
+        layout="@layout/activity_main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        layout="@layout/activity_main"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true" />
 
     <include
-        android:visibility="gone"
         android:id="@+id/LoginXML"
+        layout="@layout/activity_login"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        layout="@layout/activity_login"
+        android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:visibility="gone" />
 
     <include
         android:id="@+id/loadingHome"
-        android:visibility="gone"
+        layout="@layout/loading"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        layout="@layout/loading" />
+        android:visibility="gone" />
 
 </RelativeLayout>

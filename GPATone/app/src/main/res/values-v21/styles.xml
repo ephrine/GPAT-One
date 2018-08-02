@@ -6,7 +6,10 @@
         <item name="colorPrimary">@color/com_facebook_messenger_blue</item>
         <item name="colorPrimaryDark">@color/startColor</item>
         <item name="colorAccent">@color/colorAccent</item>
-        <item name="android:statusBarColor">@color/com_facebook_button_send_background_color_pressed</item>
-        <item name="android:navigationBarColor">@color/common_google_signin_btn_text_dark_focused</item>
+        <item name="android:statusBarColor">
+            @color/com_facebook_button_send_background_color_pressed
+        </item>
+        <item name="android:navigationBarColor">@color/common_google_signin_btn_text_dark_focused
+        </item>
     </style>
 </resources>
