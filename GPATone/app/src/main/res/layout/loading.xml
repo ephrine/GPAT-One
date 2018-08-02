@@ -1,66 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
     xmlns:card_view="http://schemas.android.com/tools"
-    >
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
     <ImageView
+        android:id="@+id/imageView21"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@color/loadingBG"
-        android:id="@+id/imageView21" />
+        android:src="@color/loadingBG" />
 
     <LinearLayout
-        android:orientation="horizontal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
-        android:background="@color/loadingBG">
+        android:layout_centerVertical="true"
+        android:background="@color/loadingBG"
+        android:orientation="horizontal">
 
         <android.support.v7.widget.CardView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            card_view:cardUseCompatPadding="true"
-            >
+            card_view:cardUseCompatPadding="true">
 
             <LinearLayout
-                android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
 
                 <Space
                     android:layout_width="5dp"
-                    android:layout_height="60dp"
-                     />
+                    android:layout_height="60dp" />
 
                 <ProgressBar
+                    android:id="@+id/progressBar7"
                     style="?android:attr/progressBarStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/progressBar7"
-                    android:layout_gravity="center"
-                    />
+                    android:layout_gravity="center" />
 
                 <Space
                     android:layout_width="10dp"
-                    android:layout_height="wrap_content"
-                     />
+                    android:layout_height="wrap_content" />
 
                 <TextView
-                    android:text="Loading..."
+                    android:id="@+id/textView39"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/textView39"
                     android:layout_gravity="center"
-                    />
+                    android:text="Loading..." />
 
                 <Space
                     android:layout_width="5dp"
-                    android:layout_height="wrap_content"
-                     />
+                    android:layout_height="wrap_content" />
             </LinearLayout>
         </android.support.v7.widget.CardView>
     </LinearLayout>

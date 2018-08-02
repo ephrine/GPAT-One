@@ -14,7 +14,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
 import com.google.ads.mediation.facebook.FacebookAdapter;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
@@ -28,6 +27,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class NotesActivity extends AppCompatActivity {
 
+    public boolean installed = false;
     TextView title1;
     TextView title2;
     TextView title3;
@@ -38,7 +38,6 @@ public class NotesActivity extends AppCompatActivity {
     TextView title8;
     TextView title9;
     TextView title10;
-
     TextView sub1;
     TextView sub2;
     TextView sub3;
@@ -49,7 +48,6 @@ public class NotesActivity extends AppCompatActivity {
     TextView sub8;
     TextView sub9;
     TextView sub10;
-
     TextView username1;
     TextView username2;
     TextView username3;
@@ -60,7 +58,6 @@ public class NotesActivity extends AppCompatActivity {
     TextView username8;
     TextView username9;
     TextView username10;
-
     /*   ImageView img1;
        ImageView img2;
        ImageView img3;
@@ -83,7 +80,6 @@ public class NotesActivity extends AppCompatActivity {
     int card8;
     int card9;
     int card10;
-
     String title1text;
     String title2text;
     String title3text;
@@ -94,7 +90,6 @@ public class NotesActivity extends AppCompatActivity {
     String title8text;
     String title9text;
     String title10text;
-
     String sub1text;
     String sub2text;
     String sub3text;
@@ -105,7 +100,6 @@ public class NotesActivity extends AppCompatActivity {
     String sub8text;
     String sub9text;
     String sub10text;
-
     String username1text;
     String username2text;
     String username3text;
@@ -116,7 +110,6 @@ public class NotesActivity extends AppCompatActivity {
     String username8text;
     String username9text;
     String username10text;
-
     String CardUrl1;
     String CardUrl2;
     String CardUrl3;
@@ -127,18 +120,16 @@ public class NotesActivity extends AppCompatActivity {
     String CardUrl8;
     String CardUrl9;
     String CardUrl10;
-
-    String Doctype1Tx="PPT";
-    String Doctype2Tx="PPT";
-    String Doctype3Tx="PPT";
-    String Doctype4Tx="PPT";
-    String Doctype5Tx="PPT";
-    String Doctype6Tx="PPT";
-    String Doctype7Tx="PPT";
-    String Doctype8Tx="PPT";
-    String Doctype9Tx="PPT";
-    String Doctype10Tx="PPT";
-
+    String Doctype1Tx = "PPT";
+    String Doctype2Tx = "PPT";
+    String Doctype3Tx = "PPT";
+    String Doctype4Tx = "PPT";
+    String Doctype5Tx = "PPT";
+    String Doctype6Tx = "PPT";
+    String Doctype7Tx = "PPT";
+    String Doctype8Tx = "PPT";
+    String Doctype9Tx = "PPT";
+    String Doctype10Tx = "PPT";
     ImageView DocImg1;
     ImageView DocImg2;
     ImageView DocImg3;
@@ -149,8 +140,6 @@ public class NotesActivity extends AppCompatActivity {
     ImageView DocImg8;
     ImageView DocImg9;
     ImageView DocImg10;
-
-
     CardView cardview1;
     CardView cardview2;
     CardView cardview3;
@@ -161,8 +150,6 @@ public class NotesActivity extends AppCompatActivity {
     CardView cardview8;
     CardView cardview9;
     CardView cardview10;
-
-
     int tot;
     FirebaseDatabase database = FirebaseDatabase.getInstance();
 
@@ -267,17 +254,17 @@ public class NotesActivity extends AppCompatActivity {
         card9 = card9 + 10;
         card10 = card10 + 10;
         collectDataBase();
-        FloatingActionButton Prev=(FloatingActionButton)findViewById(R.id.floatingActionButtonPrev);
-        FloatingActionButton Next=(FloatingActionButton)findViewById(R.id.floatingActionButtonNext);
+        FloatingActionButton Prev = (FloatingActionButton) findViewById(R.id.floatingActionButtonPrev);
+        FloatingActionButton Next = (FloatingActionButton) findViewById(R.id.floatingActionButtonNext);
 
-        if(card1>0 || card2>0 || card3>0 || card4>0 || card5>0){
+        if (card1 > 0 || card2 > 0 || card3 > 0 || card4 > 0 || card5 > 0) {
             Prev.setVisibility(View.VISIBLE);
 
         }
         Log.e("GPAT----", String.valueOf(card1));
 
-int t=tot-1;
-        if(card1>=t || card2>=t || card3>=t || card4>=t || card5>=t || card6>=t || card7>=t || card8>=t || card9>=t || card10>=t){
+        int t = tot - 1;
+        if (card1 >= t || card2 >= t || card3 >= t || card4 >= t || card5 >= t || card6 >= t || card7 >= t || card8 >= t || card9 >= t || card10 >= t) {
             Next.setVisibility(View.GONE);
 
         }
@@ -300,16 +287,16 @@ int t=tot-1;
         card9 = card9 - 10;
         card10 = card10 - 10;
         collectDataBase();
-        FloatingActionButton Prev=(FloatingActionButton)findViewById(R.id.floatingActionButtonPrev);
-        FloatingActionButton Next=(FloatingActionButton)findViewById(R.id.floatingActionButtonNext);
+        FloatingActionButton Prev = (FloatingActionButton) findViewById(R.id.floatingActionButtonPrev);
+        FloatingActionButton Next = (FloatingActionButton) findViewById(R.id.floatingActionButtonNext);
 
-        if(card1<=0 || card2<=0 || card3<=0 || card4<=0 || card5<=0){
+        if (card1 <= 0 || card2 <= 0 || card3 <= 0 || card4 <= 0 || card5 <= 0) {
             Prev.setVisibility(View.GONE);
 
         }
 
 
-        if(card1<tot || card2<tot || card3<tot || card4<tot || card5<tot || card6<tot || card7<tot || card8<tot || card9<tot || card10<tot){
+        if (card1 < tot || card2 < tot || card3 < tot || card4 < tot || card5 < tot || card6 < tot || card7 < tot || card8 < tot || card9 < tot || card10 < tot) {
             Next.setVisibility(View.VISIBLE);
 
         }
@@ -431,8 +418,10 @@ int t=tot-1;
                 String value = dataSnapshot.getValue(String.class);
                 Log.d("GPAT:", "user is: " + value);
 
-              if(value!=null){  Doctype1Tx = value;
-                notesLoad();}
+                if (value != null) {
+                    Doctype1Tx = value;
+                    notesLoad();
+                }
             }
 
             @Override
@@ -535,8 +524,10 @@ int t=tot-1;
                 // whenever data at this location is updated.
                 String value = dataSnapshot.getValue(String.class);
                 Log.d("GPAT:", "user is: " + value);
-                if(value!=null){ Doctype2Tx = value;
-                notesLoad();}
+                if (value != null) {
+                    Doctype2Tx = value;
+                    notesLoad();
+                }
             }
 
             @Override
@@ -635,8 +626,10 @@ int t=tot-1;
                 // whenever data at this location is updated.
                 String value = dataSnapshot.getValue(String.class);
                 Log.d("GPAT:", "user is: " + value);
-                if(value!=null){Doctype3Tx = value;
-                notesLoad();}
+                if (value != null) {
+                    Doctype3Tx = value;
+                    notesLoad();
+                }
             }
 
             @Override
@@ -737,8 +730,10 @@ int t=tot-1;
                 // whenever data at this location is updated.
                 String value = dataSnapshot.getValue(String.class);
                 Log.d("GPAT:", "user is: " + value);
-                if(value!=null){Doctype4Tx = value;
-                notesLoad();}
+                if (value != null) {
+                    Doctype4Tx = value;
+                    notesLoad();
+                }
             }
 
             @Override
@@ -837,8 +832,10 @@ int t=tot-1;
                 // whenever data at this location is updated.
                 String value = dataSnapshot.getValue(String.class);
                 Log.d("GPAT:", "user is: " + value);
-                if(value!=null){Doctype5Tx = value;
-                notesLoad();}
+                if (value != null) {
+                    Doctype5Tx = value;
+                    notesLoad();
+                }
             }
 
             @Override
@@ -937,8 +934,10 @@ int t=tot-1;
                 // whenever data at this location is updated.
                 String value = dataSnapshot.getValue(String.class);
                 Log.d("GPAT:", "user is: " + value);
-                if(value!=null){Doctype6Tx = value;
-                notesLoad();}
+                if (value != null) {
+                    Doctype6Tx = value;
+                    notesLoad();
+                }
             }
 
             @Override
@@ -1037,8 +1036,10 @@ int t=tot-1;
                 // whenever data at this location is updated.
                 String value = dataSnapshot.getValue(String.class);
                 Log.d("GPAT:", "user is: " + value);
-                if(value!=null){   Doctype7Tx = value;
-                notesLoad();}
+                if (value != null) {
+                    Doctype7Tx = value;
+                    notesLoad();
+                }
             }
 
             @Override
@@ -1136,8 +1137,10 @@ int t=tot-1;
                 // whenever data at this location is updated.
                 String value = dataSnapshot.getValue(String.class);
                 Log.d("GPAT:", "user is: " + value);
-                if(value!=null){   Doctype8Tx = value;
-                notesLoad();}
+                if (value != null) {
+                    Doctype8Tx = value;
+                    notesLoad();
+                }
             }
 
             @Override
@@ -1236,8 +1239,10 @@ int t=tot-1;
                 // whenever data at this location is updated.
                 String value = dataSnapshot.getValue(String.class);
                 Log.d("GPAT:", "user is: " + value);
-                if(value!=null){  Doctype9Tx = value;
-                notesLoad();}
+                if (value != null) {
+                    Doctype9Tx = value;
+                    notesLoad();
+                }
             }
 
             @Override
@@ -1336,8 +1341,10 @@ int t=tot-1;
                 // whenever data at this location is updated.
                 String value = dataSnapshot.getValue(String.class);
                 Log.d("GPAT:", "user is: " + value);
-                if(value!=null){   Doctype10Tx = value;
-                notesLoad();}
+                if (value != null) {
+                    Doctype10Tx = value;
+                    notesLoad();
+                }
             }
 
             @Override
@@ -1374,7 +1381,8 @@ int t=tot-1;
             DocImg1.setImageDrawable(PPTDrawable);
         } else if (Doctype1Tx.equals("PDF")) {
             DocImg1.setImageDrawable(PDFDrawable);
-        }else{}
+        } else {
+        }
 
         //Card 2
         title2 = (TextView) findViewById(R.id.textView30c);
@@ -1390,7 +1398,8 @@ int t=tot-1;
             DocImg2.setImageDrawable(PPTDrawable);
         } else if (Doctype2Tx.equals("PDF")) {
             DocImg2.setImageDrawable(PDFDrawable);
-        }else{}
+        } else {
+        }
 
 
         //Card 3
@@ -1407,7 +1416,8 @@ int t=tot-1;
             DocImg3.setImageDrawable(PPTDrawable);
         } else if (Doctype3Tx.equals("PDF")) {
             DocImg3.setImageDrawable(PDFDrawable);
-        }else{}
+        } else {
+        }
 
 
         //Card 4
@@ -1424,7 +1434,8 @@ int t=tot-1;
             DocImg4.setImageDrawable(PPTDrawable);
         } else if (Doctype4Tx.equals("PDF")) {
             DocImg4.setImageDrawable(PDFDrawable);
-        }else{}
+        } else {
+        }
 
 
         //Card 5
@@ -1441,7 +1452,8 @@ int t=tot-1;
             DocImg5.setImageDrawable(PPTDrawable);
         } else if (Doctype5Tx.equals("PDF")) {
             DocImg5.setImageDrawable(PDFDrawable);
-        }else{}
+        } else {
+        }
 
 
         //Card 6
@@ -1458,7 +1470,8 @@ int t=tot-1;
             DocImg6.setImageDrawable(PPTDrawable);
         } else if (Doctype6Tx.equals("PDF")) {
             DocImg6.setImageDrawable(PDFDrawable);
-        }else{}
+        } else {
+        }
 
 
         //Card 7
@@ -1475,7 +1488,8 @@ int t=tot-1;
             DocImg7.setImageDrawable(PPTDrawable);
         } else if (Doctype7Tx.equals("PDF")) {
             DocImg7.setImageDrawable(PDFDrawable);
-        }else{}
+        } else {
+        }
 
 
         //Card 8
@@ -1492,7 +1506,8 @@ int t=tot-1;
             DocImg8.setImageDrawable(PPTDrawable);
         } else if (Doctype8Tx.equals("PDF")) {
             DocImg8.setImageDrawable(PDFDrawable);
-        }else{}
+        } else {
+        }
 
 
         //Card 9
@@ -1509,7 +1524,8 @@ int t=tot-1;
             DocImg9.setImageDrawable(PPTDrawable);
         } else if (Doctype9Tx.equals("PDF")) {
             DocImg9.setImageDrawable(PDFDrawable);
-        }else{}
+        } else {
+        }
 
         //Card 10
         title10 = (TextView) findViewById(R.id.textView309);
@@ -1525,7 +1541,8 @@ int t=tot-1;
             DocImg10.setImageDrawable(PPTDrawable);
         } else if (Doctype10Tx.equals("PDF")) {
             DocImg10.setImageDrawable(PDFDrawable);
-        }else{}
+        } else {
+        }
 
         CardVisibility();
     }
@@ -1574,7 +1591,6 @@ int t=tot-1;
         if (title10text != null) {
             cardview10.setVisibility(View.VISIBLE);
         }
-
 
 
         //------------
@@ -1682,12 +1698,9 @@ int t=tot-1;
         startActivity(intent);
     }
 
-
-    public boolean installed = false;
-
     public void AdLoad() {
 
-        String APPID = getString(R.string.MY_APP_ID);
+        String APPID = getString(R.string.AdMob_APP_ID);
 
         MobileAds.initialize(getApplicationContext(), APPID);
 

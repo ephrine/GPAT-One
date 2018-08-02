@@ -7,18 +7,21 @@
         <item name="colorPrimaryDark">@color/colorPrimary</item>
         <item name="colorAccent">@android:color/holo_blue_bright</item>
     </style>
+
     <style name="AppThemeStart" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/com_facebook_messenger_blue</item>
         <item name="colorPrimaryDark">@color/startColor</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
+
     <style name="AppThemeQp" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorAc</item>
         <item name="colorPrimaryDark">@color/actionbar</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
+
     <style name="AppThemesyll" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/primarSyll</item>
@@ -26,6 +29,7 @@
         <item name="colorAccent">?attr/colorPrimary</item>
 
     </style>
+
     <style name="AppThemeAbout" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/EPvoilet</item>
@@ -33,6 +37,7 @@
         <item name="colorAccent">?attr/colorPrimary</item>
 
     </style>
+
     <style name="AppThemeBook" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/bookPrim</item>

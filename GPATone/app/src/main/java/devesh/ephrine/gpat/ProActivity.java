@@ -13,6 +13,7 @@ public class ProActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pro);
     }
+
     public void pro(View view) {
 
         Intent intent = new Intent(Intent.ACTION_VIEW);

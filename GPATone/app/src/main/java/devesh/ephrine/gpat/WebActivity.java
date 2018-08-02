@@ -9,8 +9,6 @@ import android.webkit.WebView;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.google.android.gms.ads.InterstitialAd;
-
 public class WebActivity extends AppCompatActivity {
 
     @Override
@@ -55,13 +53,13 @@ public class WebActivity extends AppCompatActivity {
 
         // get Connectivity Manager object to check connection
         ConnectivityManager connec =
-                (ConnectivityManager)getSystemService(getBaseContext().CONNECTIVITY_SERVICE);
+                (ConnectivityManager) getSystemService(getBaseContext().CONNECTIVITY_SERVICE);
 
         // Check for network connections
-        if ( connec.getNetworkInfo(0).getState() == android.net.NetworkInfo.State.CONNECTED ||
+        if (connec.getNetworkInfo(0).getState() == android.net.NetworkInfo.State.CONNECTED ||
                 connec.getNetworkInfo(0).getState() == android.net.NetworkInfo.State.CONNECTING ||
                 connec.getNetworkInfo(1).getState() == android.net.NetworkInfo.State.CONNECTING ||
-                connec.getNetworkInfo(1).getState() == android.net.NetworkInfo.State.CONNECTED ) {
+                connec.getNetworkInfo(1).getState() == android.net.NetworkInfo.State.CONNECTED) {
 
             // if connected with internet
 
@@ -70,17 +68,16 @@ public class WebActivity extends AppCompatActivity {
 
         } else if (
                 connec.getNetworkInfo(0).getState() == android.net.NetworkInfo.State.DISCONNECTED ||
-                        connec.getNetworkInfo(1).getState() == android.net.NetworkInfo.State.DISCONNECTED  ) {
+                        connec.getNetworkInfo(1).getState() == android.net.NetworkInfo.State.DISCONNECTED) {
             WebView myWebView = (WebView) findViewById(R.id.webview1);
             myWebView.setVisibility(View.GONE);
-            ImageView nonet=(ImageView)findViewById(R.id.imageView8);
+            ImageView nonet = (ImageView) findViewById(R.id.imageView8);
             nonet.setVisibility(View.VISIBLE);
             Toast.makeText(this, " Please Connect to internet ", Toast.LENGTH_LONG).show();
             return false;
         }
         return false;
     }
-
 
 
 }

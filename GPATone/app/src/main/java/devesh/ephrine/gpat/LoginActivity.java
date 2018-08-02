@@ -1,9 +1,13 @@
 package devesh.ephrine.gpat;
 
 import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.Signature;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
@@ -23,18 +27,16 @@ import com.google.firebase.auth.FacebookAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+
 public class LoginActivity extends AppCompatActivity {
-    private FirebaseAuth mAuth;
-    private FirebaseAuth.AuthStateListener mAuthListener;
-
-
     public String EmailTx;
     public String DisplayNameTx;
     public String UID;
-
     public View Loadingview;
-
-
+    private FirebaseAuth mAuth;
+    private FirebaseAuth.AuthStateListener mAuthListener;
     private CallbackManager mCallbackManager;
 
 
@@ -43,11 +45,11 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         FacebookSdk.sdkInitialize(getApplicationContext());
-     //   callbackManager = CallbackManager.Factory.create();
+        //   callbackManager = CallbackManager.Factory.create();
 
         setContentView(R.layout.activity_login);
 
-       final Intent i = new Intent(getBaseContext(), MainActivity.class);
+        final Intent i = new Intent(getBaseContext(), MainActivity.class);
         mAuth = FirebaseAuth.getInstance();
         mAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
@@ -56,7 +58,7 @@ public class LoginActivity extends AppCompatActivity {
                 if (user != null) {
                     // User is signed in
                     Log.d("GPAT #1", "onAuthStateChanged:signed_in:" + user.getUid());
-                //    startActivity(i);
+                    //    startActivity(i);
 //finish();
                 } else {
                     // User is signed out
@@ -66,6 +68,8 @@ public class LoginActivity extends AppCompatActivity {
             }
         };
         FBFirebase();
+//        printKeyHash();
+
 
 //        loginButton = (LoginButton)findViewById(R.id.login_button);
 /*
@@ -103,6 +107,32 @@ public class LoginActivity extends AppCompatActivity {
 
 */
     }
+
+
+    private void printKeyHash() {
+        // Add code to print out the key hash
+        try {
+            PackageInfo info = getPackageManager().getPackageInfo(
+                    "devesh.ephrine.gpat",
+                    PackageManager.GET_SIGNATURES);
+            for (Signature signature : info.signatures) {
+                MessageDigest md = MessageDigest.getInstance("SHA");
+                md.update(signature.toByteArray());
+                Log.d("--------------------", "----------");
+
+                Log.d("KeyHash1:-----------", Base64.encodeToString(md.digest(), Base64.DEFAULT));
+            }
+        } catch (PackageManager.NameNotFoundException e) {
+            Log.d("--------------------", "----------");
+
+            Log.d("KeyHash2:", e.toString());
+        } catch (NoSuchAlgorithmException e) {
+            Log.d("--------------------", "----------");
+
+            Log.d("KeyHash3:", e.toString());
+        }
+    }
+
 
 /*
     private void updateUI() {
@@ -160,7 +190,7 @@ public class LoginActivity extends AppCompatActivity {
 */
 
 
-    public void FBFirebase(){
+    public void FBFirebase() {
         mAuth = FirebaseAuth.getInstance();
 
         // Initialize Facebook Login button
@@ -190,9 +220,8 @@ public class LoginActivity extends AppCompatActivity {
 // ...
 
 
-
-
     }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -216,7 +245,7 @@ public class LoginActivity extends AppCompatActivity {
                             // Name, email address, and profile photo Url
                             String name = user.getDisplayName();
                             String email = user.getEmail();
-                           // Uri photoUrl = user.getPhotoUrl();
+                            // Uri photoUrl = user.getPhotoUrl();
                             Log.d("GPAT", "FB USERNAME: " + name);
                             Log.d("GPAT", "FB EMAIL: " + email);
 
@@ -228,11 +257,10 @@ public class LoginActivity extends AppCompatActivity {
                             // FirebaseUser.getToken() instead.
                             String uid = user.getUid();
                             Log.d("GPAT", "FB UID: " + uid);
-                            String pic= user.getPhotoUrl().toString();
+                            String pic = user.getPhotoUrl().toString();
                             Log.d("GPAT", "FB pic: " + pic);
                             Intent i = new Intent(getBaseContext(), MainActivity.class);
                             startActivity(i);
-
 
 
                         }
@@ -249,6 +277,7 @@ public class LoginActivity extends AppCompatActivity {
                     }
                 });
     }
+
     @Override
     public void onStart() {
         super.onStart();

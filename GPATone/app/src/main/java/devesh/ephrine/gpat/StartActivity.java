@@ -10,12 +10,11 @@ public class StartActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
-     //   VideoView video = (VideoView) findViewById(R.id.videoView);
+        //   VideoView video = (VideoView) findViewById(R.id.videoView);
         // Load and start the movie
-      //  Uri video1 = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.vid);
-      //  video.setVideoURI(video1);
-       // video.start();
-
+        //  Uri video1 = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.vid);
+        //  video.setVideoURI(video1);
+        // video.start();
 
 
         Thread background = new Thread() {
@@ -27,9 +26,9 @@ public class StartActivity extends Activity {
 
                     // After 2 seconds redirect to another intent
 
-                  //  VideoView video = (VideoView) findViewById(R.id.videoView);
+                    //  VideoView video = (VideoView) findViewById(R.id.videoView);
 
-                   // video.stopPlayback();
+                    // video.stopPlayback();
 
                     // Remove activity
                     Intent i = new Intent(getBaseContext(), MainActivity.class);
@@ -48,9 +47,6 @@ public class StartActivity extends Activity {
         background.start();
 
     }
-
-
-
 
 
 }

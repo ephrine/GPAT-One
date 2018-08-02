@@ -1,48 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
-    xmlns:ads="http://schemas.android.com/apk/res-auto"
 
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_notes"
     android:layout_width="match_parent"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
     android:layout_height="match_parent"
-     tools:context="devesh.ephrine.gpat.NotesActivity">
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    tools:context="devesh.ephrine.gpat.NotesActivity">
 
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:scrollbars="none"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:scrollbars="none">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <com.google.android.gms.ads.AdView
                 android:id="@+id/adView1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                 ads:adSize="BANNER"
-                ads:adUnitId="@string/my_banner_ad_unit_id4_Notes">
-            </com.google.android.gms.ads.AdView>
+                ads:adSize="BANNER"
+                ads:adUnitId="@string/Ad_Banner3"></com.google.android.gms.ads.AdView>
 
             <android.support.v7.widget.CardView
+                android:id="@+id/cardView1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                card_view:cardElevation="5dp"
-                card_view:cardUseCompatPadding="true"
-                app:cardPreventCornerOverlap="false"
-                android:id="@+id/cardView1"
+                android:onClick="card1click"
                 android:visibility="gone"
-                android:onClick="card1click">
+                app:cardPreventCornerOverlap="false"
+                card_view:cardElevation="5dp"
+                card_view:cardUseCompatPadding="true">
 
 
                 <LinearLayout
@@ -50,51 +49,52 @@
                     android:layout_height="match_parent">
 
                     <ImageView
+                        android:id="@+id/imageViewCardImg1"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
-                        android:id="@+id/imageViewCardImg1"
                         android:layout_gravity="center"
                         app:srcCompat="@color/cardview_light_background" />
 
                     <LinearLayout
-                        android:orientation="vertical"
                         android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:layout_height="wrap_content">
+                        android:orientation="vertical">
 
                         <TextView
-                            android:text="TextView12"
+                            android:id="@+id/textView30"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:id="@+id/textView30"
+                            android:text="TextView12"
                             android:textStyle="normal|bold" />
 
                         <TextView
-                            android:text="TextView0013"
+                            android:id="@+id/textView31"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:id="@+id/textView31"
+                            android:text="TextView0013"
                             android:textStyle="normal|italic" />
 
                         <TextView
-                            android:text="TextView001"
+                            android:id="@+id/textView29"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:id="@+id/textView29"
+                            android:text="TextView001"
                             android:textStyle="normal|italic" />
                     </LinearLayout>
 
                 </LinearLayout>
             </android.support.v7.widget.CardView>
+
             <android.support.v7.widget.CardView
                 android:id="@+id/cardView2"
-                android:visibility="gone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                card_view:cardElevation="5dp"
                 android:onClick="card2click"
-                card_view:cardUseCompatPadding="true"
-                app:cardPreventCornerOverlap="false">
+                android:visibility="gone"
+                app:cardPreventCornerOverlap="false"
+                card_view:cardElevation="5dp"
+                card_view:cardUseCompatPadding="true">
 
 
                 <LinearLayout
@@ -102,37 +102,37 @@
                     android:layout_height="match_parent">
 
                     <ImageView
+                        android:id="@+id/imageViewCardImg2"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
-                        android:id="@+id/imageViewCardImg2"
                         android:layout_gravity="center"
                         app:srcCompat="@color/cardview_light_background" />
 
                     <LinearLayout
-                        android:orientation="vertical"
                         android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:layout_height="wrap_content">
+                        android:orientation="vertical">
 
                         <TextView
-                            android:text="TextView12"
+                            android:id="@+id/textView30c"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:id="@+id/textView30c"
+                            android:text="TextView12"
                             android:textStyle="normal|bold" />
 
                         <TextView
-                            android:text="TextView0013"
+                            android:id="@+id/textView31c"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:id="@+id/textView31c"
+                            android:text="TextView0013"
                             android:textStyle="normal|italic" />
 
                         <TextView
-                            android:text="TextView001"
+                            android:id="@+id/textView29c"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:id="@+id/textView29c"
+                            android:text="TextView001"
                             android:textStyle="normal|italic" />
                     </LinearLayout>
 
@@ -142,14 +142,14 @@
 
             <android.support.v7.widget.CardView
                 android:id="@+id/cardView3"
-                android:onClick="card3click"
                 android:layout_width="match_parent"
-                android:visibility="gone"
-
                 android:layout_height="wrap_content"
+                android:onClick="card3click"
+
+                android:visibility="gone"
+                app:cardPreventCornerOverlap="false"
                 card_view:cardElevation="5dp"
-                card_view:cardUseCompatPadding="true"
-                app:cardPreventCornerOverlap="false">
+                card_view:cardUseCompatPadding="true">
 
 
                 <LinearLayout
@@ -157,52 +157,53 @@
                     android:layout_height="match_parent">
 
                     <ImageView
+                        android:id="@+id/imageViewCardImg3"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
-                        android:id="@+id/imageViewCardImg3"
                         android:layout_gravity="center"
                         app:srcCompat="@color/cardview_light_background" />
 
                     <LinearLayout
-                        android:orientation="vertical"
                         android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:layout_height="wrap_content">
+                        android:orientation="vertical">
 
                         <TextView
-                            android:text="TextView12"
+                            android:id="@+id/textView3010"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:id="@+id/textView3010"
+                            android:text="TextView12"
                             android:textStyle="normal|bold" />
 
                         <TextView
-                            android:text="TextView0013"
+                            android:id="@+id/textView311"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:id="@+id/textView311"
+                            android:text="TextView0013"
                             android:textStyle="normal|italic" />
 
                         <TextView
-                            android:text="TextView001"
+                            android:id="@+id/textView229"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:id="@+id/textView229"
+                            android:text="TextView001"
                             android:textStyle="normal|italic" />
                     </LinearLayout>
 
                 </LinearLayout>
             </android.support.v7.widget.CardView>
+
             <android.support.v7.widget.CardView
                 android:id="@+id/cardView4"
-                android:onClick="card4click"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:onClick="card4click"
                 android:visibility="gone"
 
+                app:cardPreventCornerOverlap="false"
                 card_view:cardElevation="5dp"
-                card_view:cardUseCompatPadding="true"
-                app:cardPreventCornerOverlap="false">
+                card_view:cardUseCompatPadding="true">
 
 
                 <LinearLayout
@@ -210,52 +211,53 @@
                     android:layout_height="match_parent">
 
                     <ImageView
+                        android:id="@+id/imageViewCardImg4"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
-                        android:id="@+id/imageViewCardImg4"
                         android:layout_gravity="center"
                         app:srcCompat="@color/cardview_light_background" />
 
                     <LinearLayout
-                        android:orientation="vertical"
                         android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:layout_height="wrap_content">
+                        android:orientation="vertical">
 
                         <TextView
-                            android:text="TextView12"
+                            android:id="@+id/textView350"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:id="@+id/textView350"
+                            android:text="TextView12"
                             android:textStyle="normal|bold" />
 
                         <TextView
-                            android:text="TextView0013"
+                            android:id="@+id/textView371"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:id="@+id/textView371"
+                            android:text="TextView0013"
                             android:textStyle="normal|italic" />
 
                         <TextView
-                            android:text="TextView001"
+                            android:id="@+id/textView290"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:id="@+id/textView290"
+                            android:text="TextView001"
                             android:textStyle="normal|italic" />
                     </LinearLayout>
 
                 </LinearLayout>
             </android.support.v7.widget.CardView>
+
             <android.support.v7.widget.CardView
                 android:id="@+id/cardView5"
-                android:onClick="card5click"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                card_view:cardElevation="5dp"
+                android:onClick="card5click"
                 android:visibility="gone"
+                app:cardPreventCornerOverlap="false"
 
-                card_view:cardUseCompatPadding="true"
-                app:cardPreventCornerOverlap="false">
+                card_view:cardElevation="5dp"
+                card_view:cardUseCompatPadding="true">
 
 
                 <LinearLayout
@@ -263,37 +265,37 @@
                     android:layout_height="match_parent">
 
                     <ImageView
+                        android:id="@+id/imageViewCardImg5"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
-                        android:id="@+id/imageViewCardImg5"
                         android:layout_gravity="center"
                         app:srcCompat="@color/cardview_light_background" />
 
                     <LinearLayout
-                        android:orientation="vertical"
                         android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:layout_height="wrap_content">
+                        android:orientation="vertical">
 
                         <TextView
-                            android:text="TextView12"
+                            android:id="@+id/textView830"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:id="@+id/textView830"
+                            android:text="TextView12"
                             android:textStyle="normal|bold" />
 
                         <TextView
-                            android:text="TextView0013"
+                            android:id="@+id/textView931"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:id="@+id/textView931"
+                            android:text="TextView0013"
                             android:textStyle="normal|italic" />
 
                         <TextView
-                            android:text="TextView001"
+                            android:id="@+id/textView0129"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:id="@+id/textView0129"
+                            android:text="TextView001"
                             android:textStyle="normal|italic" />
                     </LinearLayout>
 
@@ -302,14 +304,14 @@
 
             <android.support.v7.widget.CardView
                 android:id="@+id/cardView6"
-                android:onClick="card6click"
                 android:layout_width="match_parent"
-                android:visibility="gone"
-
                 android:layout_height="wrap_content"
+                android:onClick="card6click"
+
+                android:visibility="gone"
+                app:cardPreventCornerOverlap="false"
                 card_view:cardElevation="5dp"
-                card_view:cardUseCompatPadding="true"
-                app:cardPreventCornerOverlap="false">
+                card_view:cardUseCompatPadding="true">
 
 
                 <LinearLayout
@@ -317,52 +319,53 @@
                     android:layout_height="match_parent">
 
                     <ImageView
+                        android:id="@+id/imageViewCardImg6"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
-                        android:id="@+id/imageViewCardImg6"
                         android:layout_gravity="center"
                         app:srcCompat="@color/cardview_light_background" />
 
                     <LinearLayout
-                        android:orientation="vertical"
                         android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:layout_height="wrap_content">
+                        android:orientation="vertical">
 
                         <TextView
-                            android:text="TextView12"
+                            android:id="@+id/textView330"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:id="@+id/textView330"
+                            android:text="TextView12"
                             android:textStyle="normal|bold" />
 
                         <TextView
-                            android:text="TextView0013"
+                            android:id="@+id/textView391"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:id="@+id/textView391"
+                            android:text="TextView0013"
                             android:textStyle="normal|italic" />
 
                         <TextView
-                            android:text="TextView001"
+                            android:id="@+id/textView259"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:id="@+id/textView259"
+                            android:text="TextView001"
                             android:textStyle="normal|italic" />
                     </LinearLayout>
 
                 </LinearLayout>
             </android.support.v7.widget.CardView>
+
             <android.support.v7.widget.CardView
                 android:id="@+id/cardView7"
-                android:onClick="card7click"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:onClick="card7click"
                 android:visibility="gone"
 
+                app:cardPreventCornerOverlap="false"
                 card_view:cardElevation="5dp"
-                card_view:cardUseCompatPadding="true"
-                app:cardPreventCornerOverlap="false">
+                card_view:cardUseCompatPadding="true">
 
 
                 <LinearLayout
@@ -370,52 +373,53 @@
                     android:layout_height="match_parent">
 
                     <ImageView
+                        android:id="@+id/imageViewCardImg7"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
-                        android:id="@+id/imageViewCardImg7"
                         android:layout_gravity="center"
                         app:srcCompat="@color/cardview_light_background" />
 
                     <LinearLayout
-                        android:orientation="vertical"
                         android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:layout_height="wrap_content">
+                        android:orientation="vertical">
 
                         <TextView
-                            android:text="TextView12"
+                            android:id="@+id/textView303"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:id="@+id/textView303"
+                            android:text="TextView12"
                             android:textStyle="normal|bold" />
 
                         <TextView
-                            android:text="TextView0013"
+                            android:id="@+id/textView312"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:id="@+id/textView312"
+                            android:text="TextView0013"
                             android:textStyle="normal|italic" />
 
                         <TextView
-                            android:text="TextView001"
+                            android:id="@+id/textView291"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:id="@+id/textView291"
+                            android:text="TextView001"
                             android:textStyle="normal|italic" />
                     </LinearLayout>
 
                 </LinearLayout>
             </android.support.v7.widget.CardView>
+
             <android.support.v7.widget.CardView
                 android:id="@+id/cardView8"
-                android:onClick="card8click"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:onClick="card8click"
                 android:visibility="gone"
 
+                app:cardPreventCornerOverlap="false"
                 card_view:cardElevation="5dp"
-                card_view:cardUseCompatPadding="true"
-                app:cardPreventCornerOverlap="false">
+                card_view:cardUseCompatPadding="true">
 
 
                 <LinearLayout
@@ -423,52 +427,53 @@
                     android:layout_height="match_parent">
 
                     <ImageView
+                        android:id="@+id/imageViewCardImg8"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
-                        android:id="@+id/imageViewCardImg8"
                         android:layout_gravity="center"
                         app:srcCompat="@color/cardview_light_background" />
 
                     <LinearLayout
-                        android:orientation="vertical"
                         android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:layout_height="wrap_content">
+                        android:orientation="vertical">
 
                         <TextView
-                            android:text="TextView12"
+                            android:id="@+id/textView390"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:id="@+id/textView390"
+                            android:text="TextView12"
                             android:textStyle="normal|bold" />
 
                         <TextView
-                            android:text="TextView0013"
+                            android:id="@+id/textView313"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:id="@+id/textView313"
+                            android:text="TextView0013"
                             android:textStyle="normal|italic" />
 
                         <TextView
-                            android:text="TextView001"
+                            android:id="@+id/textView295"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:id="@+id/textView295"
+                            android:text="TextView001"
                             android:textStyle="normal|italic" />
                     </LinearLayout>
 
                 </LinearLayout>
             </android.support.v7.widget.CardView>
+
             <android.support.v7.widget.CardView
                 android:id="@+id/cardView9"
-                android:onClick="card9click"
                 android:layout_width="match_parent"
-                android:visibility="gone"
-
                 android:layout_height="wrap_content"
+                android:onClick="card9click"
+
+                android:visibility="gone"
+                app:cardPreventCornerOverlap="false"
                 card_view:cardElevation="5dp"
-                card_view:cardUseCompatPadding="true"
-                app:cardPreventCornerOverlap="false">
+                card_view:cardUseCompatPadding="true">
 
 
                 <LinearLayout
@@ -476,52 +481,53 @@
                     android:layout_height="match_parent">
 
                     <ImageView
+                        android:id="@+id/imageViewCardImg9"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
-                        android:id="@+id/imageViewCardImg9"
                         android:layout_gravity="center"
                         app:srcCompat="@color/cardview_light_background" />
 
                     <LinearLayout
-                        android:orientation="vertical"
                         android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:layout_height="wrap_content">
+                        android:orientation="vertical">
 
                         <TextView
-                            android:text="TextView12"
+                            android:id="@+id/textView306"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:id="@+id/textView306"
+                            android:text="TextView12"
                             android:textStyle="normal|bold" />
 
                         <TextView
-                            android:text="TextView0013"
+                            android:id="@+id/textView317"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:id="@+id/textView317"
+                            android:text="TextView0013"
                             android:textStyle="normal|italic" />
 
                         <TextView
-                            android:text="TextView001"
+                            android:id="@+id/textView293"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:id="@+id/textView293"
+                            android:text="TextView001"
                             android:textStyle="normal|italic" />
                     </LinearLayout>
 
                 </LinearLayout>
             </android.support.v7.widget.CardView>
+
             <android.support.v7.widget.CardView
                 android:id="@+id/cardView10"
-                android:onClick="card10click"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:onClick="card10click"
                 android:visibility="gone"
 
+                app:cardPreventCornerOverlap="false"
                 card_view:cardElevation="5dp"
-                card_view:cardUseCompatPadding="true"
-                app:cardPreventCornerOverlap="false">
+                card_view:cardUseCompatPadding="true">
 
 
                 <LinearLayout
@@ -529,49 +535,49 @@
                     android:layout_height="match_parent">
 
                     <ImageView
+                        android:id="@+id/imageViewCardImg10"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
-                        android:id="@+id/imageViewCardImg10"
                         android:layout_gravity="center"
                         app:srcCompat="@color/cardview_light_background" />
 
                     <LinearLayout
-                        android:orientation="vertical"
                         android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:layout_height="wrap_content">
+                        android:orientation="vertical">
 
                         <TextView
-                            android:text="TextView12"
+                            android:id="@+id/textView309"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:id="@+id/textView309"
+                            android:text="TextView12"
                             android:textStyle="normal|bold" />
 
                         <TextView
-                            android:text="TextView0013"
+                            android:id="@+id/textView361"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:id="@+id/textView361"
+                            android:text="TextView0013"
                             android:textStyle="normal|italic" />
 
                         <TextView
-                            android:text="TextView001"
+                            android:id="@+id/textView296"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:id="@+id/textView296"
+                            android:text="TextView001"
                             android:textStyle="normal|italic" />
                     </LinearLayout>
 
                 </LinearLayout>
             </android.support.v7.widget.CardView>
+
             <com.google.android.gms.ads.AdView
                 android:id="@+id/adView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 ads:adSize="BANNER"
-                ads:adUnitId="@string/my_banner_ad_unit_id4_Notes">
-            </com.google.android.gms.ads.AdView>
+                ads:adUnitId="@string/Ad_Banner3"></com.google.android.gms.ads.AdView>
 
             <Space
                 android:layout_width="wrap_content"
@@ -581,46 +587,46 @@
     </ScrollView>
 
     <android.support.design.widget.FloatingActionButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:clickable="true"
-        app:fabSize="auto"
-        android:onClick="upload"
-        app:srcCompat="@android:drawable/stat_sys_upload"
         android:id="@+id/floatingActionButton2"
-        android:layout_marginBottom="30dp"
-
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
-
-    <android.support.design.widget.FloatingActionButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="30dp"
         android:clickable="true"
-        app:fabSize="mini"
-        android:onClick="prev"
-        app:srcCompat="@drawable/ic_menu_forward"
+        android:onClick="upload"
+
+        app:fabSize="auto"
+        app:srcCompat="@android:drawable/stat_sys_upload" />
+
+    <android.support.design.widget.FloatingActionButton
         android:id="@+id/floatingActionButtonPrev"
-        android:layout_marginBottom="30dp"
-
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
-
-    <android.support.design.widget.FloatingActionButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="30dp"
         android:clickable="true"
-        app:fabSize="mini"
-        android:visibility="gone"
 
-        android:onClick="next"
-        app:srcCompat="@drawable/ic_menu_back"
+        android:onClick="prev"
+        app:fabSize="mini"
+        app:srcCompat="@drawable/ic_menu_forward" />
+
+    <android.support.design.widget.FloatingActionButton
         android:id="@+id/floatingActionButtonNext"
-        android:layout_gravity="center"
-android:layout_marginBottom="30dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+
+        android:layout_alignParentStart="true"
+        android:layout_gravity="center"
+        android:layout_marginBottom="30dp"
+        android:clickable="true"
+        android:onClick="next"
+        android:visibility="gone"
+        app:fabSize="mini"
+        app:srcCompat="@drawable/ic_menu_back" />
 
 </RelativeLayout>

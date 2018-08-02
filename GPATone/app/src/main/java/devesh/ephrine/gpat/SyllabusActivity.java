@@ -25,16 +25,18 @@ import com.google.android.gms.ads.MobileAds;
 
 public class SyllabusActivity extends AppCompatActivity {
 
+    public boolean installed = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_syllabus);
 
-AdLoad();
+        AdLoad();
 
     }
 
-    public void phychem(View v){
+    public void phychem(View v) {
         setContentView(R.layout.syllabus_web);
 
         WebView myWebView = (WebView) findViewById(R.id.webview1);
@@ -44,15 +46,17 @@ AdLoad();
 
 
     }
-    public void pp(View v){
+
+    public void pp(View v) {
         setContentView(R.layout.syllabus_web);
         WebView myWebView = (WebView) findViewById(R.id.webview1);
         myWebView.loadUrl("https://firebasestorage.googleapis.com/v0/b/admob-app-id-7252308654.appspot.com/o/GPAT%2Fsyllabus%2FPHYSICAL%20PHARMACY.html?alt=media&token=f2a70c0e-5fba-4041-86bc-10e22877bc03");
-		webload();
+        webload();
         AdLoad();
 
     }
-    public void oc(View v){
+
+    public void oc(View v) {
         setContentView(R.layout.syllabus_web);
         WebView myWebView = (WebView) findViewById(R.id.webview1);
         myWebView.loadUrl("https://firebasestorage.googleapis.com/v0/b/admob-app-id-7252308654.appspot.com/o/GPAT%2Fsyllabus%2FORGANIC%20CHEMISTRY.html?alt=media&token=0afb0d74-0c1d-4485-87e4-ea2899432a16");
@@ -61,15 +65,16 @@ AdLoad();
 
     }
 
-    public void pchem(View v){
+    public void pchem(View v) {
         setContentView(R.layout.syllabus_web);
         WebView myWebView = (WebView) findViewById(R.id.webview1);
         myWebView.loadUrl("https://firebasestorage.googleapis.com/v0/b/admob-app-id-7252308654.appspot.com/o/GPAT%2Fsyllabus%2FPHARMACEUTICAL%20CHEMISTRY.html?alt=media&token=3f218699-bd4c-4f11-9386-23f253d11f3a");
         webload();
         AdLoad();
 
-            }
-    public void pceutics(View v){
+    }
+
+    public void pceutics(View v) {
         setContentView(R.layout.syllabus_web);
         WebView myWebView = (WebView) findViewById(R.id.webview1);
         myWebView.loadUrl("https://firebasestorage.googleapis.com/v0/b/admob-app-id-7252308654.appspot.com/o/GPAT%2Fsyllabus%2FPHARMACEUTICS.html?alt=media&token=cc85a781-7d42-4c0f-82d3-db9f6d8a2336");
@@ -77,7 +82,8 @@ AdLoad();
         AdLoad();
 
     }
-    public void pcology(View v){
+
+    public void pcology(View v) {
         setContentView(R.layout.syllabus_web);
         WebView myWebView = (WebView) findViewById(R.id.webview1);
         myWebView.loadUrl("https://firebasestorage.googleapis.com/v0/b/admob-app-id-7252308654.appspot.com/o/GPAT%2Fsyllabus%2FPHARMACOLOGY.html?alt=media&token=0abae41b-dd54-4663-b961-ac7ede0dbbfc");
@@ -86,7 +92,8 @@ AdLoad();
 
 
     }
-    public void pa(View v){
+
+    public void pa(View v) {
         setContentView(R.layout.syllabus_web);
         WebView myWebView = (WebView) findViewById(R.id.webview1);
         myWebView.loadUrl("https://firebasestorage.googleapis.com/v0/b/admob-app-id-7252308654.appspot.com/o/GPAT%2Fsyllabus%2FPHARMACEUTICAL%20ANALYSIS.html?alt=media&token=d17f8904-1a36-4cec-8adf-1e8469ca67c1");
@@ -94,7 +101,8 @@ AdLoad();
         AdLoad();
 
     }
-    public void biochem(View v){
+
+    public void biochem(View v) {
         setContentView(R.layout.syllabus_web);
         WebView myWebView = (WebView) findViewById(R.id.webview1);
         myWebView.loadUrl("https://firebasestorage.googleapis.com/v0/b/admob-app-id-7252308654.appspot.com/o/GPAT%2Fsyllabus%2FBIOCHEMISTRY.html?alt=media&token=91ff03e5-ee32-428c-b9ea-9e2494398328");
@@ -102,7 +110,8 @@ AdLoad();
         AdLoad();
 
     }
-    public void biotech(View v){
+
+    public void biotech(View v) {
         setContentView(R.layout.syllabus_web);
         WebView myWebView = (WebView) findViewById(R.id.webview1);
         myWebView.loadUrl("https://firebasestorage.googleapis.com/v0/b/admob-app-id-7252308654.appspot.com/o/GPAT%2Fsyllabus%2FBIOTECHNOLOGY.html?alt=media&token=d50c66be-1aa8-489d-a775-fa34d3cf6a72");
@@ -110,7 +119,8 @@ AdLoad();
         AdLoad();
 
     }
-    public void pathophy(View v){
+
+    public void pathophy(View v) {
         setContentView(R.layout.syllabus_web);
         WebView myWebView = (WebView) findViewById(R.id.webview1);
         myWebView.loadUrl("https://firebasestorage.googleapis.com/v0/b/admob-app-id-7252308654.appspot.com/o/GPAT%2Fsyllabus%2FPATHOPHYSIOLOGY.html?alt=media&token=78e9a017-76f9-4e13-a6aa-f3605e6def84");
@@ -118,7 +128,8 @@ AdLoad();
         AdLoad();
 
     }
-    public void bnp(View v){
+
+    public void bnp(View v) {
         setContentView(R.layout.syllabus_web);
         WebView myWebView = (WebView) findViewById(R.id.webview1);
         myWebView.loadUrl("https://firebasestorage.googleapis.com/v0/b/admob-app-id-7252308654.appspot.com/o/GPAT%2Fsyllabus%2FBIOPHARMACEUTICS%20AND%20PHARMACOKINETICS.html?alt=media&token=1d1bc6fa-6d20-4cf5-9471-ac6baf643f57");
@@ -126,7 +137,8 @@ AdLoad();
         AdLoad();
 
     }
-    public void cpt(View v){
+
+    public void cpt(View v) {
         setContentView(R.layout.syllabus_web);
         WebView myWebView = (WebView) findViewById(R.id.webview1);
         myWebView.loadUrl("https://firebasestorage.googleapis.com/v0/b/admob-app-id-7252308654.appspot.com/o/GPAT%2Fsyllabus%2FCLINICAL%20PHARMACY%20AND%20THERAPEUTICS.html?alt=media&token=16269149-691c-4c2c-aba8-0e814b8a6a00");
@@ -135,7 +147,8 @@ AdLoad();
 
 
     }
-    public void pe(View v){
+
+    public void pe(View v) {
         setContentView(R.layout.syllabus_web);
         WebView myWebView = (WebView) findViewById(R.id.webview1);
         myWebView.loadUrl("https://firebasestorage.googleapis.com/v0/b/admob-app-id-7252308654.appspot.com/o/GPAT%2Fsyllabus%2FPHARMACEUTICAL%20ENGINEERING.html?alt=media&token=d04b07a7-f4dc-4ea3-903c-27ab0116a100");
@@ -143,7 +156,8 @@ AdLoad();
         AdLoad();
 
     }
-    public void pm(View v){
+
+    public void pm(View v) {
         setContentView(R.layout.syllabus_web);
         WebView myWebView = (WebView) findViewById(R.id.webview1);
         myWebView.loadUrl("https://firebasestorage.googleapis.com/v0/b/admob-app-id-7252308654.appspot.com/o/GPAT%2Fsyllabus%2FPHARMACEUTICAL%20MANAGEMENT.html?alt=media&token=a58363fb-825f-446e-91a3-8c4cda615a78");
@@ -153,7 +167,7 @@ AdLoad();
 
     }
 
-    public void pj(View v){
+    public void pj(View v) {
         setContentView(R.layout.syllabus_web);
         WebView myWebView = (WebView) findViewById(R.id.webview1);
         myWebView.loadUrl("https://firebasestorage.googleapis.com/v0/b/admob-app-id-7252308654.appspot.com/o/GPAT%2Fsyllabus%2FPHARMACEUTICAL%20JURISPRUDENCE.html?alt=media&token=e962d574-5fbe-4c39-83dc-d5c345122231");
@@ -162,15 +176,17 @@ AdLoad();
 
 
     }
-    public void dhp(View v){
+
+    public void dhp(View v) {
         setContentView(R.layout.syllabus_web);
         WebView myWebView = (WebView) findViewById(R.id.webview1);
         myWebView.loadUrl("https://firebasestorage.googleapis.com/v0/b/admob-app-id-7252308654.appspot.com/o/GPAT%2Fsyllabus%2FDISPENSING.html?alt=media&token=be7776d9-36cc-4308-9705-eaa393bfabb7");
-webload();
+        webload();
         AdLoad();
 
     }
-    public void aph(View v){
+
+    public void aph(View v) {
         setContentView(R.layout.syllabus_web);
         WebView myWebView = (WebView) findViewById(R.id.webview1);
         myWebView.loadUrl("https://firebasestorage.googleapis.com/v0/b/admob-app-id-7252308654.appspot.com/o/GPAT%2Fsyllabus%2FANATOMY.html?alt=media&token=f83d1a37-32e4-42e6-9b77-5dfb0660af8d");
@@ -178,7 +194,8 @@ webload();
         AdLoad();
 
     }
-    public void microbio(View v){
+
+    public void microbio(View v) {
         setContentView(R.layout.syllabus_web);
         WebView myWebView = (WebView) findViewById(R.id.webview1);
         myWebView.loadUrl("https://firebasestorage.googleapis.com/v0/b/admob-app-id-7252308654.appspot.com/o/GPAT%2Fsyllabus%2FMICROBIOLOGY.html?alt=media&token=3e86353e-4bfa-4e33-a933-a507b4614e03");
@@ -188,7 +205,7 @@ webload();
 
     }
 
-    public void pcogno(View v){
+    public void pcogno(View v) {
 
         setContentView(R.layout.syllabus_web);
         WebView myWebView = (WebView) findViewById(R.id.webview1);
@@ -198,7 +215,7 @@ webload();
 
     }
 
-    public void webload(){
+    public void webload() {
 
         WebView myWebView = (WebView) findViewById(R.id.webview1);
 
@@ -207,33 +224,13 @@ webload();
         myWebView.setWebChromeClient(new WebChromeClient());
         // myWebView.setWebViewClient(new WebViewClient());
         myWebView.setWebViewClient(new MyWebViewClient());
-      //  myWebView.getSettings().setDefaultZoom(WebSettings.ZoomDensity.FAR);
-       // myWebView.setInitialScale(50);
+        //  myWebView.getSettings().setDefaultZoom(WebSettings.ZoomDensity.FAR);
+        // myWebView.setInitialScale(50);
         myWebView.getSettings().setBuiltInZoomControls(true);
-isInternetOn();
-    }
-    private class MyWebViewClient extends WebViewClient {
-        @Override
-        public void onPageStarted(WebView view, String url, Bitmap favicon ) {
-            // TODO Auto-generated method stub
-       //     LinearLayout loading =(LinearLayout)findViewById(R.id.loading);
-
-       //     loading.setVisibility(View.VISIBLE);
-
-        }
-
-        @Override
-        public void onPageFinished(WebView view, String url) {
-            // TODO Auto-generated method stub
-            //super.onPageFinished(view, url);
-           // LinearLayout loading =(LinearLayout)findViewById(R.id.loading);
-
-          //  loading.setVisibility(View.GONE);
-        }
-
+        isInternetOn();
     }
 
-    public void pro(View v){
+    public void pro(View v) {
         Intent intent = new Intent(Intent.ACTION_VIEW);
 
         intent.setData(Uri.parse("https://firebasestorage.googleapis.com/v0/b/admob-app-id-7252308654.appspot.com/o/GPAT%2Fpdf%2FGPAT-Syllabus-2017.pdf?alt=media&token=4b3967ca-a8d3-4835-9782-05d5b16bb983")); //pdf
@@ -245,13 +242,13 @@ isInternetOn();
 
         // get Connectivity Manager object to check connection
         ConnectivityManager connec =
-                (ConnectivityManager)getSystemService(getBaseContext().CONNECTIVITY_SERVICE);
+                (ConnectivityManager) getSystemService(getBaseContext().CONNECTIVITY_SERVICE);
 
         // Check for network connections
-        if ( connec.getNetworkInfo(0).getState() == NetworkInfo.State.CONNECTED ||
+        if (connec.getNetworkInfo(0).getState() == NetworkInfo.State.CONNECTED ||
                 connec.getNetworkInfo(0).getState() == NetworkInfo.State.CONNECTING ||
                 connec.getNetworkInfo(1).getState() == NetworkInfo.State.CONNECTING ||
-                connec.getNetworkInfo(1).getState() == NetworkInfo.State.CONNECTED ) {
+                connec.getNetworkInfo(1).getState() == NetworkInfo.State.CONNECTED) {
 
             // if connected with internet
 
@@ -260,10 +257,10 @@ isInternetOn();
 
         } else if (
                 connec.getNetworkInfo(0).getState() == NetworkInfo.State.DISCONNECTED ||
-                        connec.getNetworkInfo(1).getState() == NetworkInfo.State.DISCONNECTED  ) {
+                        connec.getNetworkInfo(1).getState() == NetworkInfo.State.DISCONNECTED) {
             WebView myWebView = (WebView) findViewById(R.id.webview1);
-             myWebView.setVisibility(View.GONE);
-            ImageView nonet=(ImageView)findViewById(R.id.imageView8);
+            myWebView.setVisibility(View.GONE);
+            ImageView nonet = (ImageView) findViewById(R.id.imageView8);
             nonet.setVisibility(View.VISIBLE);
             Toast.makeText(this, " Please Connect to internet ", Toast.LENGTH_LONG).show();
             return false;
@@ -276,12 +273,12 @@ isInternetOn();
                 = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
 
-        if(activeNetworkInfo!=null){
+        if (activeNetworkInfo != null) {
 
             WebView myWebView = (WebView) findViewById(R.id.webview1);
-           // myWebView.setVisibility(View.GONE);
-            ImageView nonet=(ImageView)findViewById(R.id.imageView8);
-          nonet.setVisibility(View.VISIBLE);
+            // myWebView.setVisibility(View.GONE);
+            ImageView nonet = (ImageView) findViewById(R.id.imageView8);
+            nonet.setVisibility(View.VISIBLE);
 
         }
 
@@ -290,11 +287,9 @@ isInternetOn();
 
     }
 
-    public boolean installed = false;
+    public void AdLoad() {
 
-    public void AdLoad(){
-
-        String APPID=getString(R.string.MY_APP_ID);
+        String APPID = getString(R.string.AdMob_APP_ID);
 
         MobileAds.initialize(getApplicationContext(), APPID);
 
@@ -303,11 +298,11 @@ isInternetOn();
 
         isAppInstalled("devesh.ephrine.gpat.pro");
 
-        if(installed==true){
+        if (installed == true) {
             mAdView.setVisibility(View.GONE);
-            Log.e("GPAT"," AD Disabled");
+            Log.e("GPAT", " AD Disabled");
 
-        }else {
+        } else {
 
 
             Bundle extras = new FacebookAdapter.FacebookExtrasBundleBuilder()
@@ -317,15 +312,14 @@ isInternetOn();
             AdRequest adRequest = new AdRequest.Builder()
                     .addNetworkExtrasBundle(FacebookAdapter.class, extras)
                     .build();
-         //   AdRequest adRequest = new AdRequest.Builder().build();
+            //   AdRequest adRequest = new AdRequest.Builder().build();
             mAdView.loadAd(adRequest);
-            Log.e("GPAT"," AD Loaded");
+            Log.e("GPAT", " AD Loaded");
 
         }
 
 
     }
-
 
     private boolean isAppInstalled(String uri) {
         PackageManager pm = getPackageManager();
@@ -338,7 +332,26 @@ isInternetOn();
         return installed;
     }
 
+    private class MyWebViewClient extends WebViewClient {
+        @Override
+        public void onPageStarted(WebView view, String url, Bitmap favicon) {
+            // TODO Auto-generated method stub
+            //     LinearLayout loading =(LinearLayout)findViewById(R.id.loading);
 
+            //     loading.setVisibility(View.VISIBLE);
+
+        }
+
+        @Override
+        public void onPageFinished(WebView view, String url) {
+            // TODO Auto-generated method stub
+            //super.onPageFinished(view, url);
+            // LinearLayout loading =(LinearLayout)findViewById(R.id.loading);
+
+            //  loading.setVisibility(View.GONE);
+        }
+
+    }
 
 
 }

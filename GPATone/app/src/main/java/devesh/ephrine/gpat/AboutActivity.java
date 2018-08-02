@@ -13,12 +13,14 @@ public class AboutActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
     }
-    public void website(View v){
+
+    public void website(View v) {
         Intent intent = new Intent(Intent.ACTION_VIEW);
         intent.setData(Uri.parse("http://ephrine.blogspot.com")); //Google play store
         startActivity(intent);
 
-   }
+    }
+
     public void pro(View view) {
 
 
@@ -28,6 +30,7 @@ public class AboutActivity extends Activity {
         startActivity(intent);
 
     }
+
     public void contact(View view) {
 
 

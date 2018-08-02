@@ -1,7 +1,6 @@
 package devesh.ephrine.gpat;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
@@ -21,7 +20,6 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -31,7 +29,6 @@ import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
 import com.facebook.FacebookSdk;
-import com.facebook.ads.AdSize;
 import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
@@ -48,21 +45,17 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FacebookAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.crash.FirebaseCrash;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 
 public class MainActivity extends Activity {
+    public boolean installed = false;
+    InterstitialAd mInterstitialAd;
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
     private CallbackManager mCallbackManager;
-    InterstitialAd mInterstitialAd;
-    public boolean installed = false;
-
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,9 +71,10 @@ public class MainActivity extends Activity {
 
         AdLoad();
 
-//printKeyHash();
+// printKeyHash();
     }
-    private void printKeyHash(){
+
+    private void printKeyHash() {
         // Add code to print out the key hash
         try {
             PackageInfo info = getPackageManager().getPackageInfo(
@@ -89,17 +83,18 @@ public class MainActivity extends Activity {
             for (Signature signature : info.signatures) {
                 MessageDigest md = MessageDigest.getInstance("SHA");
                 md.update(signature.toByteArray());
-               // Log.d("--------------------", "----------");
+                Log.d("--------------------", "----------");
 
-               // Log.d("KeyHash1:-----------", Base64.encodeToString(md.digest(), Base64.DEFAULT));
+                Log.d("KeyHash1:-----------", Base64.encodeToString(md.digest(), Base64.DEFAULT));
             }
         } catch (PackageManager.NameNotFoundException e) {
-           // Log.d("KeyHash2:", e.toString());
+            Log.d("KeyHash2:", e.toString());
         } catch (NoSuchAlgorithmException e) {
-           // Log.d("KeyHash3:", e.toString());
+            Log.d("KeyHash3:", e.toString());
         }
     }
-    public void share(View v){
+
+    public void share(View v) {
 
         Intent sendIntent = new Intent();
         sendIntent.setAction(Intent.ACTION_SEND);
@@ -108,16 +103,18 @@ public class MainActivity extends Activity {
         startActivity(sendIntent);
 
     }
-    public void about(View v){
+
+    public void about(View v) {
         Intent intent = new Intent(this, AboutActivity.class);
         startActivity(intent);
     }
 
-public void privacy(View v){
-    Intent intent = new Intent(Intent.ACTION_VIEW);
-    intent.setData(Uri.parse("https://ephrine.blogspot.com/p/privacy-policy.html")); //Google play store
-    startActivity(intent);
-}
+    public void privacy(View v) {
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.setData(Uri.parse("https://ephrine.blogspot.com/p/privacy-policy.html")); //Google play store
+        startActivity(intent);
+    }
+
     public void logout(View v) {
 
         FirebaseAuth.getInstance().signOut();
@@ -329,8 +326,6 @@ public void privacy(View v){
         });
 
 
-
-
     }
 
     @Override
@@ -407,7 +402,7 @@ public void privacy(View v){
 
         } else {
 
-            String intAdID = getString(R.string.my_int_ad_id);
+            String intAdID = getString(R.string.Ad_Int_ad_id);
 
             mInterstitialAd = new InterstitialAd(this);
             mInterstitialAd.setAdUnitId(intAdID);
@@ -435,7 +430,7 @@ public void privacy(View v){
 
     public void AdLoad() {
 
-        String APPID = getString(R.string.MY_APP_ID);
+        String APPID = getString(R.string.AdMob_APP_ID);
 
         MobileAds.initialize(getApplicationContext(), APPID);
 
@@ -459,7 +454,7 @@ public void privacy(View v){
                     .build();
 
 
-           // AdRequest adRequest = new AdRequest.Builder().build();
+            // AdRequest adRequest = new AdRequest.Builder().build();
             mAdView.loadAd(adRequest);
             Log.e("GPAT", " AD Loaded");
 
