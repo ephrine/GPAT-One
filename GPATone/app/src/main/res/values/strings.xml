@@ -16,12 +16,4 @@
         completions."
     </string>
 
-    <!-- FB Login-->
-    <string name="facebook_app_id">379290122445143</string>
-
-    <string name="fb_login_protocol_scheme">fb1183918291729666</string>
-
-
-    <string name="ACCOUNT_KIT_CLIENT_TOKEN">bec5396632d2dd865627fe55a5e84302</string>
-
 </resources>
