@@ -1274,7 +1274,7 @@ public class NotesActivity extends AppCompatActivity {
                 Log.w("GPAT:", "Failed to read value.", error.toException());
             }
         });
-        // SUBJECT
+        // SUBJECT----------------
         DatabaseReference sub10 = database.getReference("GPAT/USERS/" + card10 + "/sub");
         sub10.addValueEventListener(new ValueEventListener() {
             @Override
